@@ -52,6 +52,9 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_ReLoad = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmb_TimKiem = new System.Windows.Forms.ComboBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.SuspendLayout();
@@ -209,10 +212,10 @@
             // dgvNhanVien
             // 
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNhanVien.Location = new System.Drawing.Point(40, 160);
+            this.dgvNhanVien.Location = new System.Drawing.Point(40, 196);
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.RowTemplate.Height = 24;
-            this.dgvNhanVien.Size = new System.Drawing.Size(970, 418);
+            this.dgvNhanVien.Size = new System.Drawing.Size(970, 382);
             this.dgvNhanVien.TabIndex = 25;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
@@ -286,11 +289,46 @@
             this.btn_ReLoad.UseVisualStyleBackColor = true;
             this.btn_ReLoad.Click += new System.EventHandler(this.btn_ReLoad_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(111, 157);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 17);
+            this.label8.TabIndex = 40;
+            this.label8.Text = "Tìm kiếm";
+            // 
+            // cmb_TimKiem
+            // 
+            this.cmb_TimKiem.FormattingEnabled = true;
+            this.cmb_TimKiem.Items.AddRange(new object[] {
+            "Mã nhân viên",
+            "Tên nhân viên",
+            "Chức vụ",
+            "Lương nhân viên",
+            "Giới tính",
+            "Password"});
+            this.cmb_TimKiem.Location = new System.Drawing.Point(189, 157);
+            this.cmb_TimKiem.Name = "cmb_TimKiem";
+            this.cmb_TimKiem.Size = new System.Drawing.Size(222, 24);
+            this.cmb_TimKiem.TabIndex = 39;
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(439, 157);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(310, 22);
+            this.txtTimKiem.TabIndex = 38;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            // 
             // FormNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 730);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cmb_TimKiem);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.btn_Trove);
             this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btn_Sua);
@@ -307,6 +345,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -336,5 +375,8 @@
         private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.Button btn_Luu;
         private System.Windows.Forms.Button btn_ReLoad;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmb_TimKiem;
+        private System.Windows.Forms.TextBox txtTimKiem;
     }
 }

@@ -43,6 +43,10 @@
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Reload = new System.Windows.Forms.Button();
             this.dgvHopDong = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmb_TimKiem = new System.Windows.Forms.ComboBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.cmb_NgayThue = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).BeginInit();
             this.SuspendLayout();
@@ -181,18 +185,64 @@
             // dgvHopDong
             // 
             this.dgvHopDong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHopDong.Location = new System.Drawing.Point(35, 146);
+            this.dgvHopDong.Location = new System.Drawing.Point(35, 178);
             this.dgvHopDong.Name = "dgvHopDong";
             this.dgvHopDong.RowTemplate.Height = 24;
-            this.dgvHopDong.Size = new System.Drawing.Size(764, 286);
+            this.dgvHopDong.Size = new System.Drawing.Size(764, 254);
             this.dgvHopDong.TabIndex = 16;
             this.dgvHopDong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHopDong_CellClick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(32, 134);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Tìm kiếm";
+            // 
+            // cmb_TimKiem
+            // 
+            this.cmb_TimKiem.FormattingEnabled = true;
+            this.cmb_TimKiem.Items.AddRange(new object[] {
+            "Mã hợp đồng",
+            "Mã khách hàng",
+            "Ngày thuê"});
+            this.cmb_TimKiem.Location = new System.Drawing.Point(102, 134);
+            this.cmb_TimKiem.Name = "cmb_TimKiem";
+            this.cmb_TimKiem.Size = new System.Drawing.Size(183, 24);
+            this.cmb_TimKiem.TabIndex = 26;
+            this.cmb_TimKiem.SelectedIndexChanged += new System.EventHandler(this.cmb_TimKiem_SelectedIndexChanged);
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(429, 134);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(310, 22);
+            this.txtTimKiem.TabIndex = 25;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            // 
+            // cmb_NgayThue
+            // 
+            this.cmb_NgayThue.FormattingEnabled = true;
+            this.cmb_NgayThue.Items.AddRange(new object[] {
+            "Ngày",
+            "Tháng",
+            "Năm"});
+            this.cmb_NgayThue.Location = new System.Drawing.Point(291, 134);
+            this.cmb_NgayThue.Name = "cmb_NgayThue";
+            this.cmb_NgayThue.Size = new System.Drawing.Size(121, 24);
+            this.cmb_NgayThue.TabIndex = 28;
             // 
             // FormHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 565);
+            this.Controls.Add(this.cmb_NgayThue);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmb_TimKiem);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Trove);
             this.Controls.Add(this.btn_Xoa);
@@ -209,6 +259,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -229,5 +280,9 @@
         private System.Windows.Forms.Button btn_Reload;
         private System.Windows.Forms.DataGridView dgvHopDong;
         private System.Windows.Forms.DateTimePicker dtime_NgayThue;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmb_TimKiem;
+        private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.ComboBox cmb_NgayThue;
     }
 }

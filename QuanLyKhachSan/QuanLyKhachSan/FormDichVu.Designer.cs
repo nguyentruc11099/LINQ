@@ -43,6 +43,9 @@
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Trove = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmb_TimKiem = new System.Windows.Forms.ComboBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDICHVU)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +101,7 @@
             // dgvDICHVU
             // 
             this.dgvDICHVU.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDICHVU.Location = new System.Drawing.Point(29, 119);
+            this.dgvDICHVU.Location = new System.Drawing.Point(29, 172);
             this.dgvDICHVU.Name = "dgvDICHVU";
             this.dgvDICHVU.RowTemplate.Height = 24;
             this.dgvDICHVU.Size = new System.Drawing.Size(729, 260);
@@ -107,7 +110,7 @@
             // 
             // btn_Reload
             // 
-            this.btn_Reload.Location = new System.Drawing.Point(29, 404);
+            this.btn_Reload.Location = new System.Drawing.Point(29, 449);
             this.btn_Reload.Name = "btn_Reload";
             this.btn_Reload.Size = new System.Drawing.Size(105, 33);
             this.btn_Reload.TabIndex = 7;
@@ -117,7 +120,7 @@
             // 
             // btn_Luu
             // 
-            this.btn_Luu.Location = new System.Drawing.Point(29, 459);
+            this.btn_Luu.Location = new System.Drawing.Point(29, 504);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(105, 33);
             this.btn_Luu.TabIndex = 9;
@@ -127,7 +130,7 @@
             // 
             // btn_Them
             // 
-            this.btn_Them.Location = new System.Drawing.Point(173, 404);
+            this.btn_Them.Location = new System.Drawing.Point(173, 449);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(105, 33);
             this.btn_Them.TabIndex = 10;
@@ -137,7 +140,7 @@
             // 
             // btn_Huy
             // 
-            this.btn_Huy.Location = new System.Drawing.Point(173, 459);
+            this.btn_Huy.Location = new System.Drawing.Point(173, 504);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(105, 33);
             this.btn_Huy.TabIndex = 11;
@@ -147,7 +150,7 @@
             // 
             // btn_Sua
             // 
-            this.btn_Sua.Location = new System.Drawing.Point(325, 404);
+            this.btn_Sua.Location = new System.Drawing.Point(325, 449);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(105, 33);
             this.btn_Sua.TabIndex = 12;
@@ -157,7 +160,7 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.Location = new System.Drawing.Point(325, 459);
+            this.btn_Xoa.Location = new System.Drawing.Point(325, 504);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(105, 33);
             this.btn_Xoa.TabIndex = 13;
@@ -167,7 +170,7 @@
             // 
             // btn_Trove
             // 
-            this.btn_Trove.Location = new System.Drawing.Point(461, 404);
+            this.btn_Trove.Location = new System.Drawing.Point(461, 449);
             this.btn_Trove.Name = "btn_Trove";
             this.btn_Trove.Size = new System.Drawing.Size(105, 33);
             this.btn_Trove.TabIndex = 14;
@@ -188,11 +191,43 @@
             this.panel1.Size = new System.Drawing.Size(729, 100);
             this.panel1.TabIndex = 15;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(53, 123);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Tìm kiếm";
+            // 
+            // cmb_TimKiem
+            // 
+            this.cmb_TimKiem.FormattingEnabled = true;
+            this.cmb_TimKiem.Items.AddRange(new object[] {
+            "Mã dịch vụ",
+            "Tên dịch vụ",
+            "Giá dịch vụ"});
+            this.cmb_TimKiem.Location = new System.Drawing.Point(131, 123);
+            this.cmb_TimKiem.Name = "cmb_TimKiem";
+            this.cmb_TimKiem.Size = new System.Drawing.Size(222, 24);
+            this.cmb_TimKiem.TabIndex = 39;
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(381, 123);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(310, 22);
+            this.txtTimKiem.TabIndex = 38;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            // 
             // FormDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 524);
+            this.ClientSize = new System.Drawing.Size(800, 557);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmb_TimKiem);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Trove);
             this.Controls.Add(this.btn_Xoa);
@@ -209,6 +244,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -229,6 +265,9 @@
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_Trove;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmb_TimKiem;
+        private System.Windows.Forms.TextBox txtTimKiem;
     }
 }
 

@@ -69,6 +69,7 @@ namespace QuanLyKhachSan
         private void btn_Them_Click(object sender, EventArgs e)
         {
             Them = true;
+            this.txtMaDV.Enabled = true;
             ResetText();
             this.btn_Luu.Enabled = true;
             this.btn_Huy.Enabled = true;
@@ -170,6 +171,39 @@ namespace QuanLyKhachSan
             this.txtMaDV.ResetText();
             this.txtTenDV.ResetText();
             this.txtGiaDV.ResetText();
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            ChonTiemKiem();
+        }
+        private void ChonTiemKiem()
+        {
+            QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+            if (this.cmb_TimKiem.Text == "Mã dịch vụ")
+            {
+                var lstphantu = from lpt in db.DichVus
+                                where lpt.MaDV.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvDICHVU.DataSource = lstphantu;
+                dgvDICHVU.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Tên dịch vụ")
+            {
+                var lstphantu = from lpt in db.DichVus
+                                where lpt.TenDV.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvDICHVU.DataSource = lstphantu;
+                dgvDICHVU.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Giá dịch vụ")
+            {
+                var lstphantu = from lpt in db.DichVus
+                                where lpt.GiaDV.ToString().Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvDICHVU.DataSource = lstphantu;
+                dgvDICHVU.Refresh();
+            }
         }
     }
 }

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmb_LoaiPhong = new System.Windows.Forms.ComboBox();
+            this.rbtn_Trong = new System.Windows.Forms.RadioButton();
+            this.rbtn_DaThue = new System.Windows.Forms.RadioButton();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.txtGiaPhong = new System.Windows.Forms.TextBox();
@@ -47,9 +50,9 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Reload = new System.Windows.Forms.Button();
-            this.rbtn_DaThue = new System.Windows.Forms.RadioButton();
-            this.rbtn_Trong = new System.Windows.Forms.RadioButton();
-            this.cmb_LoaiPhong = new System.Windows.Forms.ComboBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.cmb_TimKiem = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPHONG)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +76,40 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(992, 117);
             this.panel1.TabIndex = 2;
+            // 
+            // cmb_LoaiPhong
+            // 
+            this.cmb_LoaiPhong.FormattingEnabled = true;
+            this.cmb_LoaiPhong.Items.AddRange(new object[] {
+            "Đôi",
+            "Đơn",
+            "Cao Cấp"});
+            this.cmb_LoaiPhong.Location = new System.Drawing.Point(93, 65);
+            this.cmb_LoaiPhong.Name = "cmb_LoaiPhong";
+            this.cmb_LoaiPhong.Size = new System.Drawing.Size(152, 24);
+            this.cmb_LoaiPhong.TabIndex = 18;
+            // 
+            // rbtn_Trong
+            // 
+            this.rbtn_Trong.AutoSize = true;
+            this.rbtn_Trong.Location = new System.Drawing.Point(418, 80);
+            this.rbtn_Trong.Name = "rbtn_Trong";
+            this.rbtn_Trong.Size = new System.Drawing.Size(67, 21);
+            this.rbtn_Trong.TabIndex = 17;
+            this.rbtn_Trong.TabStop = true;
+            this.rbtn_Trong.Text = "Trống";
+            this.rbtn_Trong.UseVisualStyleBackColor = true;
+            // 
+            // rbtn_DaThue
+            // 
+            this.rbtn_DaThue.AutoSize = true;
+            this.rbtn_DaThue.Location = new System.Drawing.Point(302, 80);
+            this.rbtn_DaThue.Name = "rbtn_DaThue";
+            this.rbtn_DaThue.Size = new System.Drawing.Size(84, 21);
+            this.rbtn_DaThue.TabIndex = 16;
+            this.rbtn_DaThue.TabStop = true;
+            this.rbtn_DaThue.Text = "Đã Thuê";
+            this.rbtn_DaThue.UseVisualStyleBackColor = true;
             // 
             // txtSDT
             // 
@@ -159,16 +196,16 @@
             // dgvPHONG
             // 
             this.dgvPHONG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPHONG.Location = new System.Drawing.Point(60, 158);
+            this.dgvPHONG.Location = new System.Drawing.Point(59, 208);
             this.dgvPHONG.Name = "dgvPHONG";
             this.dgvPHONG.RowTemplate.Height = 24;
-            this.dgvPHONG.Size = new System.Drawing.Size(992, 469);
+            this.dgvPHONG.Size = new System.Drawing.Size(992, 461);
             this.dgvPHONG.TabIndex = 3;
             this.dgvPHONG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPHONG_CellClick);
             // 
             // btn_Trove
             // 
-            this.btn_Trove.Location = new System.Drawing.Point(531, 653);
+            this.btn_Trove.Location = new System.Drawing.Point(538, 699);
             this.btn_Trove.Name = "btn_Trove";
             this.btn_Trove.Size = new System.Drawing.Size(134, 38);
             this.btn_Trove.TabIndex = 15;
@@ -178,7 +215,7 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.Location = new System.Drawing.Point(372, 714);
+            this.btn_Xoa.Location = new System.Drawing.Point(372, 763);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(134, 38);
             this.btn_Xoa.TabIndex = 14;
@@ -188,7 +225,7 @@
             // 
             // btn_Sua
             // 
-            this.btn_Sua.Location = new System.Drawing.Point(372, 653);
+            this.btn_Sua.Location = new System.Drawing.Point(372, 699);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(134, 38);
             this.btn_Sua.TabIndex = 13;
@@ -198,7 +235,7 @@
             // 
             // btn_Huy
             // 
-            this.btn_Huy.Location = new System.Drawing.Point(215, 714);
+            this.btn_Huy.Location = new System.Drawing.Point(215, 763);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(134, 38);
             this.btn_Huy.TabIndex = 12;
@@ -208,7 +245,7 @@
             // 
             // btn_Them
             // 
-            this.btn_Them.Location = new System.Drawing.Point(215, 653);
+            this.btn_Them.Location = new System.Drawing.Point(215, 699);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(134, 38);
             this.btn_Them.TabIndex = 11;
@@ -218,7 +255,7 @@
             // 
             // btn_Luu
             // 
-            this.btn_Luu.Location = new System.Drawing.Point(59, 714);
+            this.btn_Luu.Location = new System.Drawing.Point(59, 763);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(134, 38);
             this.btn_Luu.TabIndex = 10;
@@ -228,7 +265,7 @@
             // 
             // btn_Reload
             // 
-            this.btn_Reload.Location = new System.Drawing.Point(59, 653);
+            this.btn_Reload.Location = new System.Drawing.Point(60, 699);
             this.btn_Reload.Name = "btn_Reload";
             this.btn_Reload.Size = new System.Drawing.Size(134, 38);
             this.btn_Reload.TabIndex = 9;
@@ -236,45 +273,46 @@
             this.btn_Reload.UseVisualStyleBackColor = true;
             this.btn_Reload.Click += new System.EventHandler(this.btn_Reload_Click);
             // 
-            // rbtn_DaThue
+            // txtTimKiem
             // 
-            this.rbtn_DaThue.AutoSize = true;
-            this.rbtn_DaThue.Location = new System.Drawing.Point(302, 80);
-            this.rbtn_DaThue.Name = "rbtn_DaThue";
-            this.rbtn_DaThue.Size = new System.Drawing.Size(84, 21);
-            this.rbtn_DaThue.TabIndex = 16;
-            this.rbtn_DaThue.TabStop = true;
-            this.rbtn_DaThue.Text = "Đã Thuê";
-            this.rbtn_DaThue.UseVisualStyleBackColor = true;
+            this.txtTimKiem.Location = new System.Drawing.Point(429, 165);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(310, 22);
+            this.txtTimKiem.TabIndex = 16;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
-            // rbtn_Trong
+            // cmb_TimKiem
             // 
-            this.rbtn_Trong.AutoSize = true;
-            this.rbtn_Trong.Location = new System.Drawing.Point(418, 80);
-            this.rbtn_Trong.Name = "rbtn_Trong";
-            this.rbtn_Trong.Size = new System.Drawing.Size(67, 21);
-            this.rbtn_Trong.TabIndex = 17;
-            this.rbtn_Trong.TabStop = true;
-            this.rbtn_Trong.Text = "Trống";
-            this.rbtn_Trong.UseVisualStyleBackColor = true;
+            this.cmb_TimKiem.FormattingEnabled = true;
+            this.cmb_TimKiem.Items.AddRange(new object[] {
+            "Mã phòng",
+            "Loại phòng",
+            "Tình trạng",
+            "Giá phòng",
+            "Số điện thoại",
+            "Mã nhân viên phụ trách"});
+            this.cmb_TimKiem.Location = new System.Drawing.Point(179, 165);
+            this.cmb_TimKiem.Name = "cmb_TimKiem";
+            this.cmb_TimKiem.Size = new System.Drawing.Size(222, 24);
+            this.cmb_TimKiem.TabIndex = 17;
             // 
-            // cmb_LoaiPhong
+            // label1
             // 
-            this.cmb_LoaiPhong.FormattingEnabled = true;
-            this.cmb_LoaiPhong.Items.AddRange(new object[] {
-            "Đôi",
-            "Đơn",
-            "Cao Cấp"});
-            this.cmb_LoaiPhong.Location = new System.Drawing.Point(93, 65);
-            this.cmb_LoaiPhong.Name = "cmb_LoaiPhong";
-            this.cmb_LoaiPhong.Size = new System.Drawing.Size(152, 24);
-            this.cmb_LoaiPhong.TabIndex = 18;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(101, 165);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Tìm kiếm";
             // 
             // FormPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 784);
+            this.ClientSize = new System.Drawing.Size(1110, 844);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmb_TimKiem);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.btn_Trove);
             this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btn_Sua);
@@ -291,6 +329,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPHONG)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -318,5 +357,8 @@
         private System.Windows.Forms.RadioButton rbtn_Trong;
         private System.Windows.Forms.RadioButton rbtn_DaThue;
         private System.Windows.Forms.ComboBox cmb_LoaiPhong;
+        private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.ComboBox cmb_TimKiem;
+        private System.Windows.Forms.Label label1;
     }
 }

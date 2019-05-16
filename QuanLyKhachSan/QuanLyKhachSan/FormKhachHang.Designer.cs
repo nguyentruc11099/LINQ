@@ -48,6 +48,9 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Reload = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmb_TimKiem = new System.Windows.Forms.ComboBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +70,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(45, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(988, 116);
+            this.panel1.Size = new System.Drawing.Size(988, 101);
             this.panel1.TabIndex = 26;
             // 
             // txtCMND
@@ -168,10 +171,10 @@
             // dgvKhachHang
             // 
             this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKhachHang.Location = new System.Drawing.Point(45, 163);
+            this.dgvKhachHang.Location = new System.Drawing.Point(45, 193);
             this.dgvKhachHang.Name = "dgvKhachHang";
             this.dgvKhachHang.RowTemplate.Height = 24;
-            this.dgvKhachHang.Size = new System.Drawing.Size(988, 386);
+            this.dgvKhachHang.Size = new System.Drawing.Size(988, 356);
             this.dgvKhachHang.TabIndex = 27;
             this.dgvKhachHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
             // 
@@ -245,11 +248,45 @@
             this.btn_Reload.UseVisualStyleBackColor = true;
             this.btn_Reload.Click += new System.EventHandler(this.btn_Reload_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(104, 150);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Tìm kiếm";
+            // 
+            // cmb_TimKiem
+            // 
+            this.cmb_TimKiem.FormattingEnabled = true;
+            this.cmb_TimKiem.Items.AddRange(new object[] {
+            "Mã khách hàng",
+            "Tên khách hàng",
+            "Chứng minh nhân dân",
+            "Số điện thoại",
+            "Giới tính"});
+            this.cmb_TimKiem.Location = new System.Drawing.Point(182, 150);
+            this.cmb_TimKiem.Name = "cmb_TimKiem";
+            this.cmb_TimKiem.Size = new System.Drawing.Size(222, 24);
+            this.cmb_TimKiem.TabIndex = 36;
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(432, 150);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(310, 22);
+            this.txtTimKiem.TabIndex = 35;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            // 
             // FormKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1080, 697);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmb_TimKiem);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.btn_Trove);
             this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btn_Sua);
@@ -266,6 +303,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -291,5 +329,8 @@
         private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.Button btn_Luu;
         private System.Windows.Forms.Button btn_Reload;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmb_TimKiem;
+        private System.Windows.Forms.TextBox txtTimKiem;
     }
 }

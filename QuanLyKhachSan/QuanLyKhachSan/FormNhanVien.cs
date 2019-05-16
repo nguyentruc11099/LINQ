@@ -74,6 +74,7 @@ namespace QuanLyKhachSan
         private void btn_Them_Click(object sender, EventArgs e)
         {
             Them = true;
+            this.txtMaNV.Enabled = true;
             ResetText();
             this.btn_Luu.Enabled = true;
             this.btn_Huy.Enabled = true;
@@ -195,6 +196,64 @@ namespace QuanLyKhachSan
             else
             {
                 return rbtn_Nu.Text;
+            }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            ChonTiemKiem();
+        }
+        private void ChonTiemKiem()
+        {
+            QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+            if (this.cmb_TimKiem.Text == "Mã nhân viên")
+            {
+                var lstphantu = from lpt in db.NhanViens
+                                where lpt.MaNV.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvNhanVien.DataSource = lstphantu;
+                dgvNhanVien.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Tên nhân viên")
+            {
+                var lstphantu = from lpt in db.NhanViens
+                                where lpt.TenNV.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvNhanVien.DataSource = lstphantu;
+                dgvNhanVien.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Chức vụ")
+            {
+                var lstphantu = from lpt in db.NhanViens
+                                where lpt.ChucVu.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvNhanVien.DataSource = lstphantu;
+                dgvNhanVien.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Lương nhân viên")
+            {
+                var lstphantu = from lpt in db.NhanViens
+                                where lpt.Luong.ToString().Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvNhanVien.DataSource = lstphantu;
+                dgvNhanVien.Refresh();
+            }
+
+            if (this.cmb_TimKiem.Text == "Giới tính")
+            {
+                var lstphantu = from lpt in db.NhanViens
+                                where lpt.GioiTinh.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvNhanVien.DataSource = lstphantu;
+                dgvNhanVien.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Password")
+            {
+                var lstphantu = from lpt in db.NhanViens
+                                where lpt.Password.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvNhanVien.DataSource = lstphantu;
+                dgvNhanVien.Refresh();
             }
         }
     }

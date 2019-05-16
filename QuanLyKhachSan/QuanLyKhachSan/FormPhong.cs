@@ -68,6 +68,7 @@ namespace QuanLyKhachSan
         private void btn_Them_Click(object sender, EventArgs e)
         {
             Them = true;
+            this.txtMaPhong.Enabled = true;
             ResetText();
             this.btn_Luu.Enabled = true;
             this.btn_Huy.Enabled = true;
@@ -188,6 +189,65 @@ namespace QuanLyKhachSan
                 return rbtn_DaThue.Text;
             }
             else return rbtn_Trong.Text;
+        }
+        private void ChonTiemKiem()
+        {
+            QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+            if (this.cmb_TimKiem.Text == "Mã phòng")
+            { 
+                var lstphantu = from lpt in db.Phongs
+                                where lpt.MaPhong.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvPHONG.DataSource = lstphantu;
+                dgvPHONG.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Loại phòng")
+            {               
+                var lstphantu = from lpt in db.Phongs
+                                where lpt.LoaiPhong.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvPHONG.DataSource = lstphantu;
+                dgvPHONG.Refresh();
+            }
+            if(this.cmb_TimKiem.Text == "Tình trạng")
+            {
+                var lstphantu = from lpt in db.Phongs
+                                where lpt.TinhTrang.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvPHONG.DataSource = lstphantu;
+                dgvPHONG.Refresh();
+            }
+            if(this.cmb_TimKiem.Text == "Số điện thoại")
+            {
+                var lstphantu = from lpt in db.Phongs
+                                where lpt.SDT.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvPHONG.DataSource = lstphantu;
+                dgvPHONG.Refresh();
+            }
+
+            if(this.cmb_TimKiem.Text == "Mã nhân viên phụ trách")
+            {
+                var lstphantu = from lpt in db.Phongs
+                                where lpt.MaNV.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvPHONG.DataSource = lstphantu;
+                dgvPHONG.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Giá phòng")
+            {
+                var lstphantu = from lpt in db.Phongs
+                                where lpt.GiaPhong.ToString().Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvPHONG.DataSource = lstphantu;
+                dgvPHONG.Refresh();
+            }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            ChonTiemKiem();
+
         }
     }
 }

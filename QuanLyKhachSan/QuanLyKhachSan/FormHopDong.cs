@@ -95,6 +95,7 @@ namespace QuanLyKhachSan
         private void btn_Them_Click(object sender, EventArgs e)
         {
             Them = true;
+            this.txtMaHopDong.Enabled = true;
             ResetText();
             this.btn_Luu.Enabled = true;
             this.btn_Huy.Enabled = true;
@@ -169,6 +170,72 @@ namespace QuanLyKhachSan
         private void FormHopDong_Load(object sender, EventArgs e)
         {
             LoadData();
+            cmb_NgayThue.Enabled = false;
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            ChonTiemKiem();
+        }
+        private void ChonTiemKiem()
+        {
+            QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+            if (this.cmb_TimKiem.Text == "Mã hợp đồng")
+            {
+                var lstphantu = from lpt in db.HopDongs
+                                where lpt.MaHopDong.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvHopDong.DataSource = lstphantu;
+                dgvHopDong.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Mã khách hàng")
+            {
+                var lstphantu = from lpt in db.HopDongs
+                                where lpt.MaKH.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvHopDong.DataSource = lstphantu;
+                dgvHopDong.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Ngày thuê")
+            {
+                if (this.cmb_NgayThue.Text == "Ngày")
+                {
+                    var lstphantu = from lpt in db.HopDongs
+                                    where lpt.NgayThue.Value.Day.ToString().Contains(txtTimKiem.Text)
+                                    select lpt;
+                    dgvHopDong.DataSource = lstphantu;
+                    dgvHopDong.Refresh();
+                }
+                if (this.cmb_NgayThue.Text == "Tháng")
+                {
+                    var lstphantu = from lpt in db.HopDongs
+                                    where lpt.NgayThue.Value.Month.ToString().Contains(txtTimKiem.Text)
+                                    select lpt;
+                    dgvHopDong.DataSource = lstphantu;
+                    dgvHopDong.Refresh();
+                }
+                if (this.cmb_NgayThue.Text == "Năm")
+                {
+                    var lstphantu = from lpt in db.HopDongs
+                                    where lpt.NgayThue.Value.Year.ToString().Contains(txtTimKiem.Text)
+                                    select lpt;
+                    dgvHopDong.DataSource = lstphantu;
+                    dgvHopDong.Refresh();
+                }
+            }
+        }
+
+        private void cmb_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cmb_TimKiem.Text == "Ngày thuê")
+            {
+                cmb_NgayThue.Enabled = true;
+            }
+            else
+            {
+                cmb_NgayThue.Text = "";
+                cmb_NgayThue.Enabled = false;
+            }
         }
     }
 }

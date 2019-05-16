@@ -99,6 +99,7 @@ namespace QuanLyKhachSan
         private void btn_Them_Click(object sender, EventArgs e)
         {
             Them = true;
+            this.txtMaKH.Enabled = true;
             ResetText();
             this.btn_Luu.Enabled = true;
             this.btn_Huy.Enabled = true;
@@ -190,6 +191,56 @@ namespace QuanLyKhachSan
             else
             {
                 return rbtn_Nu.Text;
+            }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            ChonTiemKiem();
+        }
+        private void ChonTiemKiem()
+        {
+            QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+            if (this.cmb_TimKiem.Text == "Mã khách hàng")
+            {
+                var lstphantu = from lpt in db.KhachHangs
+                                where lpt.MaKH.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvKhachHang.DataSource = lstphantu;
+                dgvKhachHang.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Tên khách hàng")
+            {
+                var lstphantu = from lpt in db.KhachHangs
+                                where lpt.TenKH.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvKhachHang.DataSource = lstphantu;
+                dgvKhachHang.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Chứng minh nhân dân")
+            {
+                var lstphantu = from lpt in db.KhachHangs
+                                where lpt.CMND.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvKhachHang.DataSource = lstphantu;
+                dgvKhachHang.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Số điện thoại")
+            {
+                var lstphantu = from lpt in db.KhachHangs
+                                where lpt.SDT.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvKhachHang.DataSource = lstphantu;
+                dgvKhachHang.Refresh();
+            }
+
+            if (this.cmb_TimKiem.Text == "Giới tính")
+            {
+                var lstphantu = from lpt in db.KhachHangs
+                                where lpt.GioiTinh.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvKhachHang.DataSource = lstphantu;
+                dgvKhachHang.Refresh();
             }
         }
     }
