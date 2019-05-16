@@ -56,7 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BS Layer\BLDangNhap.cs" />
     <Compile Include="BS Layer\BLDichVu.cs" />
+    <Compile Include="BS Layer\BLKhachHang.cs" />
     <Compile Include="BS Layer\BLNhanVien.cs" />
     <Compile Include="BS Layer\BLPhong.cs" />
     <Compile Include="FormDangNhap.cs">
@@ -70,6 +72,12 @@
     </Compile>
     <Compile Include="FormDichVu.Designer.cs">
       <DependentUpon>FormDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKhachHang.Designer.cs">
+      <DependentUpon>FormKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -101,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDichVu.resx">
       <DependentUpon>FormDichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKhachHang.resx">
+      <DependentUpon>FormKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

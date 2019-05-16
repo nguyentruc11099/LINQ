@@ -62,15 +62,5 @@ namespace QuanLyKhachSan.BS_Layer
             }
             return true;
         }
-        public bool LayTaiKhoan(string taikhoan, string matkhau)
-        {
-            QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
-            var text = qlks.NhanViens.Where(x => x.MaNV == taikhoan && x.Password == matkhau).FirstOrDefault();
-            if (text != null)
-            {
-                return true;
-            }
-            else { return false; }
-        }
     }
 }

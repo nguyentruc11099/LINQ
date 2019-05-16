@@ -16,3 +16,5 @@ D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKha
 D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormNhanVien.resources
 D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormDangNhap.resources
 D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormMain.resources
+D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormPhong.resources
+D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormKhachHang.resources

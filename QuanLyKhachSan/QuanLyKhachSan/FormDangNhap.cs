@@ -16,7 +16,7 @@ namespace QuanLyKhachSan
 {
     public partial class FormDangNhap : Form
     {
-        BLNhanVien txt = new BLNhanVien();
+        BLDangNhap txt = new BLDangNhap();
         public FormDangNhap()
         {
             InitializeComponent();
@@ -24,7 +24,8 @@ namespace QuanLyKhachSan
 
         private void btn_DangNhap_Click(object sender, EventArgs e)
         {
-            if (txt.LayTaiKhoan(txtID.Text, txtPass.Text) == true)
+            string chucvu = KTchucvu();
+            if (txt.LayTaiKhoan(txtID.Text, txtPass.Text, chucvu) == true)
             {
                 FormMain.bIsLogin = true;
                 Close();
@@ -36,10 +37,25 @@ namespace QuanLyKhachSan
                 txtID.Focus();
             }
         }
+        private string KTchucvu()
+        {
+            if(rbtn_LeTan.Checked == true)
+            {
+                FormMain.isQL = false;
+                return rbtn_LeTan.Text;
+
+            }
+            else
+            {
+                FormMain.isQL = true;
+                return rbtn_QuanLy.Text;
+            }
+        }
 
         private void FormDangNhap_Load(object sender, EventArgs e)
         {
-
+            rbtn_QuanLy.Checked = true;
+            
         }
     }
 }

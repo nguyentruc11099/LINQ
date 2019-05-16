@@ -31,6 +31,8 @@
             this.btn_Thoat = new System.Windows.Forms.Button();
             this.btn_DangNhap = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rbtn_LeTan = new System.Windows.Forms.RadioButton();
+            this.rbtn_QuanLy = new System.Windows.Forms.RadioButton();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,7 +43,7 @@
             // 
             // btn_Thoat
             // 
-            this.btn_Thoat.Location = new System.Drawing.Point(453, 328);
+            this.btn_Thoat.Location = new System.Drawing.Point(289, 328);
             this.btn_Thoat.Name = "btn_Thoat";
             this.btn_Thoat.Size = new System.Drawing.Size(114, 48);
             this.btn_Thoat.TabIndex = 10;
@@ -50,7 +52,7 @@
             // 
             // btn_DangNhap
             // 
-            this.btn_DangNhap.Location = new System.Drawing.Point(236, 328);
+            this.btn_DangNhap.Location = new System.Drawing.Point(73, 328);
             this.btn_DangNhap.Name = "btn_DangNhap";
             this.btn_DangNhap.Size = new System.Drawing.Size(114, 48);
             this.btn_DangNhap.TabIndex = 9;
@@ -60,19 +62,43 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.rbtn_LeTan);
+            this.panel1.Controls.Add(this.rbtn_QuanLy);
             this.panel1.Controls.Add(this.txtPass);
             this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(157, 75);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(486, 236);
+            this.panel1.Size = new System.Drawing.Size(486, 299);
             this.panel1.TabIndex = 8;
+            // 
+            // rbtn_LeTan
+            // 
+            this.rbtn_LeTan.AutoSize = true;
+            this.rbtn_LeTan.Location = new System.Drawing.Point(308, 69);
+            this.rbtn_LeTan.Name = "rbtn_LeTan";
+            this.rbtn_LeTan.Size = new System.Drawing.Size(74, 21);
+            this.rbtn_LeTan.TabIndex = 12;
+            this.rbtn_LeTan.TabStop = true;
+            this.rbtn_LeTan.Text = "Lễ Tân";
+            this.rbtn_LeTan.UseVisualStyleBackColor = true;
+            // 
+            // rbtn_QuanLy
+            // 
+            this.rbtn_QuanLy.AutoSize = true;
+            this.rbtn_QuanLy.Location = new System.Drawing.Point(308, 24);
+            this.rbtn_QuanLy.Name = "rbtn_QuanLy";
+            this.rbtn_QuanLy.Size = new System.Drawing.Size(83, 21);
+            this.rbtn_QuanLy.TabIndex = 11;
+            this.rbtn_QuanLy.TabStop = true;
+            this.rbtn_QuanLy.Text = "Quản Lý";
+            this.rbtn_QuanLy.UseVisualStyleBackColor = true;
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(188, 154);
+            this.txtPass.Location = new System.Drawing.Point(147, 207);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(222, 22);
             this.txtPass.TabIndex = 4;
@@ -80,7 +106,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(188, 94);
+            this.txtID.Location = new System.Drawing.Point(147, 145);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(222, 22);
             this.txtID.TabIndex = 3;
@@ -90,7 +116,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(29, 154);
+            this.label3.Location = new System.Drawing.Point(19, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 25);
             this.label3.TabIndex = 2;
@@ -100,7 +126,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 94);
+            this.label2.Location = new System.Drawing.Point(13, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 25);
             this.label2.TabIndex = 1;
@@ -120,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(520, 413);
             this.Controls.Add(this.btn_Thoat);
             this.Controls.Add(this.btn_DangNhap);
             this.Controls.Add(this.panel1);
@@ -143,5 +169,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rbtn_LeTan;
+        private System.Windows.Forms.RadioButton rbtn_QuanLy;
     }
 }

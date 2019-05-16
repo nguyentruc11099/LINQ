@@ -32,8 +32,6 @@
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.txtGiaPhong = new System.Windows.Forms.TextBox();
-            this.txtTinhTrang = new System.Windows.Forms.TextBox();
-            this.txtLoaiPhong = new System.Windows.Forms.TextBox();
             this.txtMaPhong = new System.Windows.Forms.TextBox();
             this.lb_MaNV = new System.Windows.Forms.Label();
             this.lb_TinhTrang = new System.Windows.Forms.Label();
@@ -49,17 +47,21 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Reload = new System.Windows.Forms.Button();
+            this.rbtn_DaThue = new System.Windows.Forms.RadioButton();
+            this.rbtn_Trong = new System.Windows.Forms.RadioButton();
+            this.cmb_LoaiPhong = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPHONG)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cmb_LoaiPhong);
+            this.panel1.Controls.Add(this.rbtn_Trong);
+            this.panel1.Controls.Add(this.rbtn_DaThue);
             this.panel1.Controls.Add(this.txtSDT);
             this.panel1.Controls.Add(this.txtMaNV);
             this.panel1.Controls.Add(this.txtGiaPhong);
-            this.panel1.Controls.Add(this.txtTinhTrang);
-            this.panel1.Controls.Add(this.txtLoaiPhong);
             this.panel1.Controls.Add(this.txtMaPhong);
             this.panel1.Controls.Add(this.lb_MaNV);
             this.panel1.Controls.Add(this.lb_TinhTrang);
@@ -92,20 +94,6 @@
             this.txtGiaPhong.Name = "txtGiaPhong";
             this.txtGiaPhong.Size = new System.Drawing.Size(119, 22);
             this.txtGiaPhong.TabIndex = 12;
-            // 
-            // txtTinhTrang
-            // 
-            this.txtTinhTrang.Location = new System.Drawing.Point(380, 50);
-            this.txtTinhTrang.Name = "txtTinhTrang";
-            this.txtTinhTrang.Size = new System.Drawing.Size(85, 22);
-            this.txtTinhTrang.TabIndex = 11;
-            // 
-            // txtLoaiPhong
-            // 
-            this.txtLoaiPhong.Location = new System.Drawing.Point(93, 62);
-            this.txtLoaiPhong.Name = "txtLoaiPhong";
-            this.txtLoaiPhong.Size = new System.Drawing.Size(104, 22);
-            this.txtLoaiPhong.TabIndex = 9;
             // 
             // txtMaPhong
             // 
@@ -171,11 +159,12 @@
             // dgvPHONG
             // 
             this.dgvPHONG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPHONG.Location = new System.Drawing.Point(60, 169);
+            this.dgvPHONG.Location = new System.Drawing.Point(60, 158);
             this.dgvPHONG.Name = "dgvPHONG";
             this.dgvPHONG.RowTemplate.Height = 24;
-            this.dgvPHONG.Size = new System.Drawing.Size(987, 454);
+            this.dgvPHONG.Size = new System.Drawing.Size(992, 469);
             this.dgvPHONG.TabIndex = 3;
+            this.dgvPHONG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPHONG_CellClick);
             // 
             // btn_Trove
             // 
@@ -185,6 +174,7 @@
             this.btn_Trove.TabIndex = 15;
             this.btn_Trove.Text = "Trở về";
             this.btn_Trove.UseVisualStyleBackColor = true;
+            this.btn_Trove.Click += new System.EventHandler(this.btn_Trove_Click);
             // 
             // btn_Xoa
             // 
@@ -194,6 +184,7 @@
             this.btn_Xoa.TabIndex = 14;
             this.btn_Xoa.Text = "Xóa";
             this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Sua
             // 
@@ -203,6 +194,7 @@
             this.btn_Sua.TabIndex = 13;
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Huy
             // 
@@ -212,6 +204,7 @@
             this.btn_Huy.TabIndex = 12;
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // btn_Them
             // 
@@ -221,6 +214,7 @@
             this.btn_Them.TabIndex = 11;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = true;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // btn_Luu
             // 
@@ -230,6 +224,7 @@
             this.btn_Luu.TabIndex = 10;
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // btn_Reload
             // 
@@ -239,6 +234,41 @@
             this.btn_Reload.TabIndex = 9;
             this.btn_Reload.Text = "Reload";
             this.btn_Reload.UseVisualStyleBackColor = true;
+            this.btn_Reload.Click += new System.EventHandler(this.btn_Reload_Click);
+            // 
+            // rbtn_DaThue
+            // 
+            this.rbtn_DaThue.AutoSize = true;
+            this.rbtn_DaThue.Location = new System.Drawing.Point(302, 80);
+            this.rbtn_DaThue.Name = "rbtn_DaThue";
+            this.rbtn_DaThue.Size = new System.Drawing.Size(84, 21);
+            this.rbtn_DaThue.TabIndex = 16;
+            this.rbtn_DaThue.TabStop = true;
+            this.rbtn_DaThue.Text = "Đã Thuê";
+            this.rbtn_DaThue.UseVisualStyleBackColor = true;
+            // 
+            // rbtn_Trong
+            // 
+            this.rbtn_Trong.AutoSize = true;
+            this.rbtn_Trong.Location = new System.Drawing.Point(418, 80);
+            this.rbtn_Trong.Name = "rbtn_Trong";
+            this.rbtn_Trong.Size = new System.Drawing.Size(67, 21);
+            this.rbtn_Trong.TabIndex = 17;
+            this.rbtn_Trong.TabStop = true;
+            this.rbtn_Trong.Text = "Trống";
+            this.rbtn_Trong.UseVisualStyleBackColor = true;
+            // 
+            // cmb_LoaiPhong
+            // 
+            this.cmb_LoaiPhong.FormattingEnabled = true;
+            this.cmb_LoaiPhong.Items.AddRange(new object[] {
+            "Đôi",
+            "Đơn",
+            "Cao Cấp"});
+            this.cmb_LoaiPhong.Location = new System.Drawing.Point(93, 65);
+            this.cmb_LoaiPhong.Name = "cmb_LoaiPhong";
+            this.cmb_LoaiPhong.Size = new System.Drawing.Size(152, 24);
+            this.cmb_LoaiPhong.TabIndex = 18;
             // 
             // FormPhong
             // 
@@ -256,6 +286,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormPhong";
             this.Text = "FormPhong";
+            this.Load += new System.EventHandler(this.FormPhong_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPHONG)).EndInit();
@@ -269,8 +300,6 @@
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.TextBox txtMaNV;
         private System.Windows.Forms.TextBox txtGiaPhong;
-        private System.Windows.Forms.TextBox txtTinhTrang;
-        private System.Windows.Forms.TextBox txtLoaiPhong;
         private System.Windows.Forms.TextBox txtMaPhong;
         private System.Windows.Forms.Label lb_MaNV;
         private System.Windows.Forms.Label lb_TinhTrang;
@@ -286,5 +315,8 @@
         private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.Button btn_Luu;
         private System.Windows.Forms.Button btn_Reload;
+        private System.Windows.Forms.RadioButton rbtn_Trong;
+        private System.Windows.Forms.RadioButton rbtn_DaThue;
+        private System.Windows.Forms.ComboBox cmb_LoaiPhong;
     }
 }

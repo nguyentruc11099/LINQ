@@ -30,7 +30,7 @@
         {
             this.menuQLKS = new System.Windows.Forms.MenuStrip();
             this.menuHethong = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngNhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDangNhap = new System.Windows.Forms.ToolStripMenuItem();
             this.menuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDanhmucQL = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQLPhong = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,6 +38,8 @@
             this.menuQLNhanVien = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQLDichVu = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuThongKe = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQLKS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +48,8 @@
             this.menuQLKS.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuQLKS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuHethong,
-            this.menuDanhmucQL});
+            this.menuDanhmucQL,
+            this.menuThongKe});
             this.menuQLKS.Location = new System.Drawing.Point(0, 0);
             this.menuQLKS.Name = "menuQLKS";
             this.menuQLKS.Size = new System.Drawing.Size(800, 28);
@@ -56,24 +59,25 @@
             // menuHethong
             // 
             this.menuHethong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.đăngNhậpToolStripMenuItem,
-            this.menuThoat});
+            this.menuDangNhap,
+            this.menuThoat,
+            this.menuDangXuat});
             this.menuHethong.Name = "menuHethong";
             this.menuHethong.Size = new System.Drawing.Size(83, 24);
             this.menuHethong.Text = "Hệ thống";
             this.menuHethong.Click += new System.EventHandler(this.menuHethong_Click);
             // 
-            // đăngNhậpToolStripMenuItem
+            // menuDangNhap
             // 
-            this.đăngNhậpToolStripMenuItem.Name = "đăngNhậpToolStripMenuItem";
-            this.đăngNhậpToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.đăngNhậpToolStripMenuItem.Text = "Đăng nhập";
-            this.đăngNhậpToolStripMenuItem.Click += new System.EventHandler(this.đăngNhậpToolStripMenuItem_Click);
+            this.menuDangNhap.Name = "menuDangNhap";
+            this.menuDangNhap.Size = new System.Drawing.Size(216, 26);
+            this.menuDangNhap.Text = "Đăng nhập";
+            this.menuDangNhap.Click += new System.EventHandler(this.menuDangNhap_Click);
             // 
             // menuThoat
             // 
             this.menuThoat.Name = "menuThoat";
-            this.menuThoat.Size = new System.Drawing.Size(157, 26);
+            this.menuThoat.Size = new System.Drawing.Size(216, 26);
             this.menuThoat.Text = "Thoát";
             // 
             // menuDanhmucQL
@@ -90,14 +94,16 @@
             // menuQLPhong
             // 
             this.menuQLPhong.Name = "menuQLPhong";
-            this.menuQLPhong.Size = new System.Drawing.Size(213, 26);
+            this.menuQLPhong.Size = new System.Drawing.Size(216, 26);
             this.menuQLPhong.Text = "Quản lý phòng";
+            this.menuQLPhong.Click += new System.EventHandler(this.menuQLPhong_Click);
             // 
             // menuQLKhachHang
             // 
             this.menuQLKhachHang.Name = "menuQLKhachHang";
-            this.menuQLKhachHang.Size = new System.Drawing.Size(213, 26);
+            this.menuQLKhachHang.Size = new System.Drawing.Size(216, 26);
             this.menuQLKhachHang.Text = "Quản lý khách hàng";
+            this.menuQLKhachHang.Click += new System.EventHandler(this.menuQLKhachHang_Click);
             // 
             // menuQLNhanVien
             // 
@@ -123,6 +129,20 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Quản lý khách sạn";
             // 
+            // menuThongKe
+            // 
+            this.menuThongKe.Name = "menuThongKe";
+            this.menuThongKe.Size = new System.Drawing.Size(82, 24);
+            this.menuThongKe.Text = "Thống kê";
+            this.menuThongKe.Click += new System.EventHandler(this.menuThongKe_Click);
+            // 
+            // menuDangXuat
+            // 
+            this.menuDangXuat.Name = "menuDangXuat";
+            this.menuDangXuat.Size = new System.Drawing.Size(216, 26);
+            this.menuDangXuat.Text = "Đăng xuất";
+            this.menuDangXuat.Click += new System.EventHandler(this.menuDangXuat_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -132,6 +152,7 @@
             this.Controls.Add(this.menuQLKS);
             this.Name = "FormMain";
             this.Text = "FormMain";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuQLKS.ResumeLayout(false);
             this.menuQLKS.PerformLayout();
             this.ResumeLayout(false);
@@ -143,7 +164,7 @@
 
         private System.Windows.Forms.MenuStrip menuQLKS;
         private System.Windows.Forms.ToolStripMenuItem menuHethong;
-        private System.Windows.Forms.ToolStripMenuItem đăngNhậpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuDangNhap;
         private System.Windows.Forms.ToolStripMenuItem menuThoat;
         private System.Windows.Forms.ToolStripMenuItem menuDanhmucQL;
         private System.Windows.Forms.ToolStripMenuItem menuQLPhong;
@@ -151,5 +172,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuQLNhanVien;
         private System.Windows.Forms.ToolStripMenuItem menuQLDichVu;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem menuThongKe;
+        private System.Windows.Forms.ToolStripMenuItem menuDangXuat;
     }
 }
