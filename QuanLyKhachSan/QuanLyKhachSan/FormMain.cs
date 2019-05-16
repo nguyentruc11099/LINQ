@@ -100,5 +100,12 @@ namespace QuanLyKhachSan
             Khoitaomoi();
            
         }
+
+        private void menuQLHopDong_Click(object sender, EventArgs e)
+        {
+            FormHopDong a1 = new FormHopDong();
+            a1.IsMdiContainer = this.IsMdiContainer;
+            a1.Show();
+        }
     }
 }
