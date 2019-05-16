@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyKhachSanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DichVu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+    </Key>
+    <Property Name="MaDV" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TenDV" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="GiaDV" Type="Double" />
+    <NavigationProperty Name="HopDongs" Relationship="Self.DichVu_HD" FromRole="DichVu" ToRole="HopDong" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MaKH" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThue" Type="DateTime" Precision="0" />
+    <Property Name="NgayTra" Type="DateTime" Precision="0" />
+    <Property Name="GiaTien" Type="Double" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_HoaDon_KhachHang" FromRole="HoaDon" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="HopDong">
+    <Key>
+      <PropertyRef Name="MaHopDong" />
+    </Key>
+    <Property Name="MaHopDong" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MaKH" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThue" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_HopDong_KhachHang1" FromRole="HopDong" ToRole="KhachHang" />
+    <NavigationProperty Name="DichVus" Relationship="Self.DichVu_HD" FromRole="HopDong" ToRole="DichVu" />
+    <NavigationProperty Name="Phongs" Relationship="Self.Phong_HopDong" FromRole="HopDong" ToRole="Phong" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+    <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_KhachHang" FromRole="KhachHang" ToRole="HoaDon" />
+    <NavigationProperty Name="HopDongs" Relationship="Self.FK_HopDong_KhachHang1" FromRole="KhachHang" ToRole="HopDong" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TenNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChucVu" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Luong" Type="Double" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Phongs" Relationship="Self.FK_Phong_NhanVien" FromRole="NhanVien" ToRole="Phong" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaPhong" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="LoaiPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TinhTrang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GiaPhong" Type="Double" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="MaNV" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_Phong_NhanVien" FromRole="Phong" ToRole="NhanVien" />
+    <NavigationProperty Name="HopDongs" Relationship="Self.Phong_HopDong" FromRole="Phong" ToRole="HopDong" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_HoaDon_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HopDong_KhachHang1">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="HopDong">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phong_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="Phong">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DichVu_HD">
+    <End Role="DichVu" Type="Self.DichVu" Multiplicity="*" />
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+  </Association>
+  <Association Name="Phong_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+    <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="QuanLyKhachSanEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DichVus" EntityType="Self.DichVu" />
+    <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+    <EntitySet Name="HopDongs" EntityType="Self.HopDong" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="Phongs" EntityType="Self.Phong" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_HoaDon_KhachHang" Association="Self.FK_HoaDon_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HopDong_KhachHang1" Association="Self.FK_HopDong_KhachHang1">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="HopDong" EntitySet="HopDongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phong_NhanVien" Association="Self.FK_Phong_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="Phong" EntitySet="Phongs" />
+    </AssociationSet>
+    <AssociationSet Name="DichVu_HD" Association="Self.DichVu_HD">
+      <End Role="DichVu" EntitySet="DichVus" />
+      <End Role="HopDong" EntitySet="HopDongs" />
+    </AssociationSet>
+    <AssociationSet Name="Phong_HopDong" Association="Self.Phong_HopDong">
+      <End Role="HopDong" EntitySet="HopDongs" />
+      <End Role="Phong" EntitySet="Phongs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
