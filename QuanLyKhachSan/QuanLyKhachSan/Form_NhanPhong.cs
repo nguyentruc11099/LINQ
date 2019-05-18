@@ -148,13 +148,20 @@ namespace QuanLyKhachSan
                 else
                 {
                     int r = dgvKH.CurrentCell.RowIndex;
+                    int q = dgvPHONG.CurrentCell.RowIndex;
                     BLHopDong db_HD = new BLHopDong();
+                    BLPhong db_P = new BLPhong();
                     db_HD.ThemHopDong(this.txtMaHD.Text, dgvKH.Rows[r].Cells[0].Value.ToString(),
                         dgvHD.Rows[0].Cells[3].Value.ToString(), this.dtime_NgayDuKien.Value.Date.ToString(), ref err);
                     LoadData();
                     for (int i = 0; i < n; i++)
                     {
                         db_P_HD.ThemPhong_HD(this.txtMaHD.Text,m[i], ref err);
+                        db_P.CapNhatPhong(m[i], dgvPHONG.Rows[q].Cells[1].Value.ToString(), 
+                            "Đã Thuê", Convert.ToDouble(dgvPHONG.Rows[q].Cells[3].Value), 
+                            dgvPHONG.Rows[q].Cells[4].Value.ToString(), dgvPHONG.Rows[q].Cells[5].Value.ToString(), ref err);
+                        q = dgvPHONG.CurrentCell.RowIndex;
+                        LoadData();
                     }
                     MessageBox.Show("Đã thêm xong!");
                 }
@@ -194,6 +201,11 @@ namespace QuanLyKhachSan
             {
                 txtMaKH.Text = "N" + b.ToString();
             }
+        }
+
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            ResetHD();
         }
     }
 }

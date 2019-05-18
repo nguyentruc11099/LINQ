@@ -28,11 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_HD = new System.Windows.Forms.Panel();
+            this.numUD_SoNgayDuKien = new System.Windows.Forms.NumericUpDown();
+            this.SoNgayDuKien = new System.Windows.Forms.Label();
+            this.btn_Reset = new System.Windows.Forms.Button();
+            this.txtMaHD = new System.Windows.Forms.TextBox();
             this.btn_ThemHD = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvHD = new System.Windows.Forms.DataGridView();
+            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_Phong = new System.Windows.Forms.Panel();
             this.btn_ChonPhong = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -76,18 +84,11 @@
             this.MaKH_Label = new System.Windows.Forms.Label();
             this.rbtn_new = new System.Windows.Forms.RadioButton();
             this.rbtn_old = new System.Windows.Forms.RadioButton();
-            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtMaHD = new System.Windows.Forms.TextBox();
             this.dtime_NgayDuKien = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btn_Reset = new System.Windows.Forms.Button();
-            this.SoNgayDuKien = new System.Windows.Forms.Label();
-            this.numUD_SoNgayDuKien = new System.Windows.Forms.NumericUpDown();
             this.panel_HD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUD_SoNgayDuKien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHD)).BeginInit();
             this.panel_Phong.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -96,7 +97,6 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).BeginInit();
             this.panel_ThemKH.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUD_SoNgayDuKien)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_HD
@@ -113,6 +113,40 @@
             this.panel_HD.Name = "panel_HD";
             this.panel_HD.Size = new System.Drawing.Size(909, 137);
             this.panel_HD.TabIndex = 38;
+            // 
+            // numUD_SoNgayDuKien
+            // 
+            this.numUD_SoNgayDuKien.Location = new System.Drawing.Point(476, 14);
+            this.numUD_SoNgayDuKien.Name = "numUD_SoNgayDuKien";
+            this.numUD_SoNgayDuKien.Size = new System.Drawing.Size(120, 22);
+            this.numUD_SoNgayDuKien.TabIndex = 44;
+            // 
+            // SoNgayDuKien
+            // 
+            this.SoNgayDuKien.AutoSize = true;
+            this.SoNgayDuKien.Location = new System.Drawing.Point(348, 16);
+            this.SoNgayDuKien.Name = "SoNgayDuKien";
+            this.SoNgayDuKien.Size = new System.Drawing.Size(122, 17);
+            this.SoNgayDuKien.TabIndex = 41;
+            this.SoNgayDuKien.Text = "Số ngày ở dự kiến";
+            // 
+            // btn_Reset
+            // 
+            this.btn_Reset.Location = new System.Drawing.Point(651, 81);
+            this.btn_Reset.Name = "btn_Reset";
+            this.btn_Reset.Size = new System.Drawing.Size(100, 39);
+            this.btn_Reset.TabIndex = 41;
+            this.btn_Reset.Text = "Reset";
+            this.btn_Reset.UseVisualStyleBackColor = true;
+            this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
+            // 
+            // txtMaHD
+            // 
+            this.txtMaHD.Location = new System.Drawing.Point(189, 11);
+            this.txtMaHD.Name = "txtMaHD";
+            this.txtMaHD.Size = new System.Drawing.Size(100, 22);
+            this.txtMaHD.TabIndex = 39;
+            this.txtMaHD.TextChanged += new System.EventHandler(this.txtMaHD_TextChanged);
             // 
             // btn_ThemHD
             // 
@@ -149,6 +183,33 @@
             this.dgvHD.RowTemplate.Height = 24;
             this.dgvHD.Size = new System.Drawing.Size(629, 79);
             this.dgvHD.TabIndex = 41;
+            // 
+            // MaHD
+            // 
+            this.MaHD.DataPropertyName = "MaHopDong";
+            this.MaHD.HeaderText = "Mã Hợp Đồng";
+            this.MaHD.Name = "MaHD";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "DS_Phòng thuê";
+            this.Column1.Name = "Column1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "MaKH";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Mã Khách Hàng";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // NgayThue
+            // 
+            this.NgayThue.DataPropertyName = "NgayThue";
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.NgayThue.DefaultCellStyle = dataGridViewCellStyle1;
+            this.NgayThue.HeaderText = "Ngày Bắt Đầu Thuê";
+            this.NgayThue.Name = "NgayThue";
             // 
             // panel_Phong
             // 
@@ -575,41 +636,6 @@
             this.rbtn_old.UseVisualStyleBackColor = true;
             this.rbtn_old.CheckedChanged += new System.EventHandler(this.rbtn_old_CheckedChanged);
             // 
-            // MaHD
-            // 
-            this.MaHD.DataPropertyName = "MaHopDong";
-            this.MaHD.HeaderText = "Mã Hợp Đồng";
-            this.MaHD.Name = "MaHD";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "DS_Phòng thuê";
-            this.Column1.Name = "Column1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "MaKH";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mã Khách Hàng";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // NgayThue
-            // 
-            this.NgayThue.DataPropertyName = "NgayThue";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle4.NullValue = null;
-            this.NgayThue.DefaultCellStyle = dataGridViewCellStyle4;
-            this.NgayThue.HeaderText = "Ngày Bắt Đầu Thuê";
-            this.NgayThue.Name = "NgayThue";
-            // 
-            // txtMaHD
-            // 
-            this.txtMaHD.Location = new System.Drawing.Point(189, 11);
-            this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.Size = new System.Drawing.Size(100, 22);
-            this.txtMaHD.TabIndex = 39;
-            this.txtMaHD.TextChanged += new System.EventHandler(this.txtMaHD_TextChanged);
-            // 
             // dtime_NgayDuKien
             // 
             this.dtime_NgayDuKien.Location = new System.Drawing.Point(715, 55);
@@ -637,31 +663,6 @@
             this.label5.TabIndex = 40;
             this.label5.Text = "Ngày dự kiến";
             // 
-            // btn_Reset
-            // 
-            this.btn_Reset.Location = new System.Drawing.Point(651, 81);
-            this.btn_Reset.Name = "btn_Reset";
-            this.btn_Reset.Size = new System.Drawing.Size(100, 39);
-            this.btn_Reset.TabIndex = 41;
-            this.btn_Reset.Text = "Reset";
-            this.btn_Reset.UseVisualStyleBackColor = true;
-            // 
-            // SoNgayDuKien
-            // 
-            this.SoNgayDuKien.AutoSize = true;
-            this.SoNgayDuKien.Location = new System.Drawing.Point(348, 16);
-            this.SoNgayDuKien.Name = "SoNgayDuKien";
-            this.SoNgayDuKien.Size = new System.Drawing.Size(122, 17);
-            this.SoNgayDuKien.TabIndex = 41;
-            this.SoNgayDuKien.Text = "Số ngày ở dự kiến";
-            // 
-            // numUD_SoNgayDuKien
-            // 
-            this.numUD_SoNgayDuKien.Location = new System.Drawing.Point(476, 14);
-            this.numUD_SoNgayDuKien.Name = "numUD_SoNgayDuKien";
-            this.numUD_SoNgayDuKien.Size = new System.Drawing.Size(120, 22);
-            this.numUD_SoNgayDuKien.TabIndex = 44;
-            // 
             // Form_NhanPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -682,6 +683,7 @@
             this.Load += new System.EventHandler(this.Form_NhanPhong_Load);
             this.panel_HD.ResumeLayout(false);
             this.panel_HD.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUD_SoNgayDuKien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHD)).EndInit();
             this.panel_Phong.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -693,7 +695,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).EndInit();
             this.panel_ThemKH.ResumeLayout(false);
             this.panel_ThemKH.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUD_SoNgayDuKien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
