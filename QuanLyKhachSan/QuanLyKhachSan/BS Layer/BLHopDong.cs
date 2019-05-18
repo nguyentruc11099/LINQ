@@ -18,13 +18,14 @@ namespace QuanLyKhachSan.BS_Layer
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             return qlks.HopDongs;
         }
-        public bool ThemHopDong(string MaHopDong, string MaKH, string NgayThue, ref string err)
+        public bool ThemHopDong(string MaHopDong, string MaKH, string NgayThue, string NgayDuKienTraPhong, ref string err)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             HopDong hdg = new HopDong();
             hdg.MaHopDong = MaHopDong;
             hdg.MaKH = MaKH;
             hdg.NgayThue = Convert.ToDateTime(NgayThue);
+            hdg.NgayDuKienTraPhong = Convert.ToDateTime(NgayDuKienTraPhong);
             qlks.HopDongs.InsertOnSubmit(hdg);
             qlks.HopDongs.Context.SubmitChanges();
             return true;
@@ -40,7 +41,7 @@ namespace QuanLyKhachSan.BS_Layer
             qlks.SubmitChanges();
             return true;
         }
-        public bool CapNhatHopDong(string MaHopDong, string MaKH, string NgayThue, ref string err)
+        public bool CapNhatHopDong(string MaHopDong, string MaKH, string NgayThue,string NgayDuKienTraPhong, ref string err)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             var hdgQuery = (from hdog in qlks.HopDongs
@@ -50,6 +51,7 @@ namespace QuanLyKhachSan.BS_Layer
             {
                 hdgQuery.MaKH = MaKH;
                 hdgQuery.NgayThue = Convert.ToDateTime(NgayThue);
+                hdgQuery.NgayDuKienTraPhong = Convert.ToDateTime(NgayDuKienTraPhong);
                 qlks.SubmitChanges();
             }
             return true;

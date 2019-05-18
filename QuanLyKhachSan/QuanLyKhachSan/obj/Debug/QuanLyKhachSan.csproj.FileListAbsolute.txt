@@ -19,3 +19,7 @@ D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKha
 D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormPhong.resources
 D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormKhachHang.resources
 D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormHopDong.resources
+D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormDichVu_HopDong.resources
+D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormHoaDon.resources
+D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormPhong_HD.resources
+D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.Form_NhanPhong.resources

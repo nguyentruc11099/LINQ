@@ -46,6 +46,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_TimKiem = new System.Windows.Forms.ComboBox();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDICHVU)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +104,10 @@
             // dgvDICHVU
             // 
             this.dgvDICHVU.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDICHVU.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
             this.dgvDICHVU.Location = new System.Drawing.Point(29, 172);
             this.dgvDICHVU.Name = "dgvDICHVU";
             this.dgvDICHVU.RowTemplate.Height = 24;
@@ -220,6 +227,27 @@
             this.txtTimKiem.TabIndex = 38;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "GiaDV";
+            this.Column3.HeaderText = "Giá dịch vụ";
+            this.Column3.Name = "Column3";
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "TenDV";
+            this.Column2.HeaderText = "Tên dịch vụ";
+            this.Column2.Name = "Column2";
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "MaDV";
+            this.Column1.HeaderText = "Mã dịch vụ";
+            this.Column1.Name = "Column1";
+            // 
             // FormDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -268,6 +296,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmb_TimKiem;
         private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
 

@@ -29,6 +29,7 @@ namespace QuanLyKhachSan
             {
                 dgvHopDong.DataSource = dbNV.LayHopDong();
                 dgvHopDong.AutoResizeColumns();
+                dgvHopDong.Columns.RemoveAt(4);
                 //this.txtMaHopDong.ResetText();
                 //this.txtMaKH.ResetText();
                 this.panel1.ResetText();
@@ -36,7 +37,6 @@ namespace QuanLyKhachSan
                 this.btn_Huy.Enabled = false;
                 this.panel1.Enabled = false;
                 // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát                  
-                this.btn_Them.Enabled = true;
                 this.btn_Sua.Enabled = true;
                 this.btn_Xoa.Enabled = true;
                 this.btn_Trove.Enabled = true;
@@ -54,35 +54,16 @@ namespace QuanLyKhachSan
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            if (Them == true)
-            {
-                try
-                {
-                    BLHopDong blP = new BLHopDong();
-                    blP.ThemHopDong(this.txtMaHopDong.Text, this.txtMaKH.Text,
-                    dtime_NgayThue.Value.Date.ToString(), ref err);
-                    LoadData();
-                    MessageBox.Show("Đã thêm xong!");
-                }
-                catch
-                {
-                    MessageBox.Show("Không thêm được!");
-                }
-            }
-            else
-            {
-                BLHopDong blP = new BLHopDong();
-                blP.CapNhatHopDong(this.txtMaHopDong.Text, this.txtMaKH.Text,
-                   dtime_NgayThue.Value.Date.ToString(), ref err);
-                LoadData();
-                MessageBox.Show("Đã sửa xong!");
-            }
+            BLHopDong blP = new BLHopDong();
+            blP.CapNhatHopDong(this.txtMaHopDong.Text, this.txtMaKH.Text,
+                dtime_NgayThue.Value.Date.ToString(), dtime_NgayDuKienTraPhong.Value.Date.ToString(), ref err);
+            LoadData();
+            MessageBox.Show("Đã sửa xong!");
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)
         {
             ResetText();
-            this.btn_Them.Enabled = true;
             this.btn_Sua.Enabled = true;
             this.btn_Xoa.Enabled = true;
 
@@ -90,23 +71,6 @@ namespace QuanLyKhachSan
             this.btn_Huy.Enabled = false;
             this.panel1.Enabled = false;
             dgvHopDong_CellClick(null, null);
-        }
-
-        private void btn_Them_Click(object sender, EventArgs e)
-        {
-            Them = true;
-            this.txtMaHopDong.Enabled = true;
-            ResetText();
-            this.btn_Luu.Enabled = true;
-            this.btn_Huy.Enabled = true;
-            this.panel1.Enabled = true;
-
-            this.btn_Them.Enabled = false;
-            this.btn_Sua.Enabled = false;
-            this.btn_Xoa.Enabled = false;
-            this.btn_Trove.Enabled = false;
-
-            this.txtMaHopDong.Focus();
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
@@ -118,7 +82,6 @@ namespace QuanLyKhachSan
             this.btn_Luu.Enabled = true;
             this.btn_Huy.Enabled = true;
             this.panel1.Enabled = true;
-            this.btn_Them.Enabled = false;
             this.btn_Sua.Enabled = false;
             this.btn_Xoa.Enabled = false;
             this.txtMaHopDong.Enabled = false;
@@ -159,6 +122,7 @@ namespace QuanLyKhachSan
             this.txtMaHopDong.Text = dgvHopDong.Rows[r].Cells[0].Value.ToString();
             this.txtMaKH.Text = dgvHopDong.Rows[r].Cells[1].Value.ToString();
             dtime_NgayThue.Value = Convert.ToDateTime(dgvHopDong.Rows[r].Cells[2].Value.ToString());
+            dtime_NgayDuKienTraPhong.Value = Convert.ToDateTime(dgvHopDong.Rows[r].Cells[3].Value.ToString());
         }
         private void ResetText()
         {
@@ -222,12 +186,42 @@ namespace QuanLyKhachSan
                     dgvHopDong.DataSource = lstphantu;
                     dgvHopDong.Refresh();
                 }
+
             }
+            if (this.cmb_TimKiem.Text == "Ngày dự kiến trả phòng")
+            {
+                if (this.cmb_NgayThue.Text == "Ngày")
+                {
+                    var lstphantu = from lpt in db.HopDongs
+                                    where lpt.NgayDuKienTraPhong.Value.Day.ToString().Contains(txtTimKiem.Text)
+                                    select lpt;
+                    dgvHopDong.DataSource = lstphantu;
+                    dgvHopDong.Refresh();
+                }
+                if (this.cmb_NgayThue.Text == "Tháng")
+                {
+                    var lstphantu = from lpt in db.HopDongs
+                                    where lpt.NgayDuKienTraPhong.Value.Month.ToString().Contains(txtTimKiem.Text)
+                                    select lpt;
+                    dgvHopDong.DataSource = lstphantu;
+                    dgvHopDong.Refresh();
+                }
+                if (this.cmb_NgayThue.Text == "Năm")
+                {
+                    var lstphantu = from lpt in db.HopDongs
+                                    where lpt.NgayDuKienTraPhong.Value.Year.ToString().Contains(txtTimKiem.Text)
+                                    select lpt;
+                    dgvHopDong.DataSource = lstphantu;
+                    dgvHopDong.Refresh();
+                }
+
+            }
+            dgvHopDong.Columns.RemoveAt(4);
         }
 
         private void cmb_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.cmb_TimKiem.Text == "Ngày thuê")
+            if (this.cmb_TimKiem.Text == "Ngày thuê" || this.cmb_TimKiem.Text == "Ngày dự kiến trả phòng")
             {
                 cmb_NgayThue.Enabled = true;
             }
@@ -236,6 +230,24 @@ namespace QuanLyKhachSan
                 cmb_NgayThue.Text = "";
                 cmb_NgayThue.Enabled = false;
             }
+        }
+        private void SinhMa()
+        {
+            string a = this.dgvHopDong.Rows[this.dgvHopDong.Rows.Count - 2].Cells[0].Value.ToString();
+            int b = Convert.ToInt32(a.Substring(1)) + 1;
+            if (b < 10)
+            {
+                txtMaHopDong.Text = "H0" + b.ToString();
+            }
+            else
+            {
+                txtMaHopDong.Text = "H" + b.ToString();
+            }
+        }
+
+        private void cmb_NgayThue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

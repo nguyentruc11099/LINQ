@@ -18,7 +18,7 @@ namespace QuanLyKhachSan.BS_Layer
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             return qlks.NhanViens;
         }
-        public bool ThemNhanVien(string MaNV, string TenNV, string ChucVu, double LuongNV, string NgaySinh, string GioiTinh, string Password, ref string err)
+        public bool ThemNhanVien(string MaNV, string TenNV, string ChucVu, double LuongNV, string NgaySinh, string GioiTinh, ref string err)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             NhanVien nv = new NhanVien();
@@ -28,7 +28,6 @@ namespace QuanLyKhachSan.BS_Layer
             nv.Luong = LuongNV;
             nv.NgaySinh = Convert.ToDateTime(NgaySinh);
             nv.GioiTinh = GioiTinh;
-            nv.Password = Password;
             qlks.NhanViens.InsertOnSubmit(nv);
             qlks.NhanViens.Context.SubmitChanges();
             return true;
@@ -44,7 +43,7 @@ namespace QuanLyKhachSan.BS_Layer
             qlks.SubmitChanges();
             return true;
         }
-        public bool CapNhatNhanVien(string MaNV, string TenNV, string ChucVu, double LuongNV, string NgaySinh, string GioiTinh, string Password, ref string err)
+        public bool CapNhatNhanVien(string MaNV, string TenNV, string ChucVu, double LuongNV, string NgaySinh, string GioiTinh, ref string err)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             var nvQuery = (from nvn in qlks.NhanViens
@@ -57,7 +56,6 @@ namespace QuanLyKhachSan.BS_Layer
                 nvQuery.Luong = LuongNV;
                 nvQuery.NgaySinh = Convert.ToDateTime(NgaySinh);
                 nvQuery.GioiTinh = GioiTinh;
-                nvQuery.Password = Password;
                 qlks.SubmitChanges();
             }
             return true;

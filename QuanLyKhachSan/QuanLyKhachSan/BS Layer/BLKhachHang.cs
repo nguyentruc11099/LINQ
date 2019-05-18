@@ -19,7 +19,7 @@ namespace QuanLyKhachSan.BS_Layer
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             return qlks.KhachHangs;
         }
-        public bool ThemKhachHang(string MaKH, string TenKH, string CMND, string GioiTinh, string SDT, ref string err)
+        public bool ThemKhachHang(string MaKH, string TenKH, string CMND, string GioiTinh, string SDT, string XuatXu, ref string err)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             KhachHang ph = new KhachHang();
@@ -28,6 +28,7 @@ namespace QuanLyKhachSan.BS_Layer
             ph.CMND = CMND;
             ph.GioiTinh = GioiTinh;
             ph.SDT = SDT;
+            ph.XuatXu = XuatXu;
             qlks.KhachHangs.InsertOnSubmit(ph);
             qlks.KhachHangs.Context.SubmitChanges();
             return true;
@@ -43,7 +44,7 @@ namespace QuanLyKhachSan.BS_Layer
             qlks.SubmitChanges();
             return true;
         }
-        public bool CapNhatKhachHang(string MaKH, string TenKH, string CMND, string GioiTinh, string SDT, ref string err)
+        public bool CapNhatKhachHang(string MaKH, string TenKH, string CMND, string GioiTinh, string SDT, string XuatXu, ref string err)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             var phQuery = (from phg in qlks.KhachHangs
@@ -55,6 +56,7 @@ namespace QuanLyKhachSan.BS_Layer
                 phQuery.CMND = CMND;
                 phQuery.GioiTinh = GioiTinh;
                 phQuery.SDT = SDT;
+                phQuery.XuatXu = XuatXu;
                 qlks.SubmitChanges();
             }
             return true;

@@ -43,6 +43,7 @@ namespace QuanLyKhachSan
 
                 }
                 this.menuDangXuat.Enabled = true;
+                this.menuDangNhap.Enabled = false;
             }
         }
 
@@ -97,6 +98,7 @@ namespace QuanLyKhachSan
         private void menuDangXuat_Click(object sender, EventArgs e)
         {
             bIsLogin = false;
+            this.menuDangNhap.Enabled = true;
             Khoitaomoi();
            
         }
@@ -104,6 +106,34 @@ namespace QuanLyKhachSan
         private void menuQLHopDong_Click(object sender, EventArgs e)
         {
             FormHopDong a1 = new FormHopDong();
+            a1.IsMdiContainer = this.IsMdiContainer;
+            a1.Show();
+        }
+
+        private void menuQLDV_KH_Click(object sender, EventArgs e)
+        {
+            FormDichVu_HopDong a1 = new FormDichVu_HopDong();
+            a1.IsMdiContainer = this.IsMdiContainer;
+            a1.Show();
+        }
+
+        private void menuQLPhong_HD_Click(object sender, EventArgs e)
+        {
+            FormPhong_HD a1 = new FormPhong_HD();
+            a1.IsMdiContainer = this.IsMdiContainer;
+            a1.Show();
+        }
+
+        private void menuQLHoaDon_Click(object sender, EventArgs e)
+        {
+            FormHoaDon a1 = new FormHoaDon();
+            a1.IsMdiContainer = this.IsMdiContainer;
+            a1.Show();
+        }
+
+        private void menuNhanPhong_Click(object sender, EventArgs e)
+        {
+            Form_NhanPhong a1 = new Form_NhanPhong();
             a1.IsMdiContainer = this.IsMdiContainer;
             a1.Show();
         }

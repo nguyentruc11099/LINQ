@@ -63,7 +63,7 @@ namespace QuanLyKhachSan
                     BLKhachHang blP = new BLKhachHang();
                     blP.ThemKhachHang(this.txtMaKH.Text, this.txtTenKH.Text,
                     this.txtCMND.Text,gioitinh,
-                    this.txtSDT.Text, ref err);
+                    this.txtSDT.Text,this.txtXuatXu.Text, ref err);
                     LoadData();
                     MessageBox.Show("Đã thêm xong!");
                 }
@@ -77,7 +77,7 @@ namespace QuanLyKhachSan
                 BLKhachHang blP = new BLKhachHang();
                 blP.CapNhatKhachHang(this.txtMaKH.Text, this.txtTenKH.Text,
                     this.txtCMND.Text, gioitinh,
-                    this.txtSDT.Text, ref err);
+                    this.txtSDT.Text,this.txtXuatXu.Text, ref err);
                 LoadData();
                 MessageBox.Show("Đã sửa xong!");
             }
@@ -99,8 +99,9 @@ namespace QuanLyKhachSan
         private void btn_Them_Click(object sender, EventArgs e)
         {
             Them = true;
-            this.txtMaKH.Enabled = true;
+            this.txtMaKH.Enabled = false;
             ResetText();
+            SinhMa();
             this.btn_Luu.Enabled = true;
             this.btn_Huy.Enabled = true;
             this.panel1.Enabled = true;
@@ -164,14 +165,19 @@ namespace QuanLyKhachSan
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             string gioitinh = checkGioiTinh();
             int r = dgvKhachHang.CurrentCell.RowIndex;
             this.txtMaKH.Text = dgvKhachHang.Rows[r].Cells[0].Value.ToString();
             this.txtTenKH.Text = dgvKhachHang.Rows[r].Cells[1].Value.ToString();
             this.txtCMND.Text = dgvKhachHang.Rows[r].Cells[2].Value.ToString();
             gioitinh = dgvKhachHang.Rows[r].Cells[3].Value.ToString();
+            if (gioitinh.Length == 3)
+            {
+                rbtn_Nam.Checked = true;
+            }
+            else rbtn_Nu.Checked = true;
             this.txtSDT.Text = dgvKhachHang.Rows[r].Cells[4].Value.ToString();
+            this.txtXuatXu.Text = dgvKhachHang.Rows[r].Cells[5].Value.ToString();
         }
         private void ResetText()
         {
@@ -241,6 +247,28 @@ namespace QuanLyKhachSan
                                 select lpt;
                 dgvKhachHang.DataSource = lstphantu;
                 dgvKhachHang.Refresh();
+            }
+            if (this.cmb_TimKiem.Text == "Xuất xứ")
+            {
+                var lstphantu = from lpt in db.KhachHangs
+                                where lpt.XuatXu.Contains(txtTimKiem.Text)
+                                select lpt;
+                dgvKhachHang.DataSource = lstphantu;
+                dgvKhachHang.Refresh();
+            }
+
+        }
+        private void SinhMa()
+        {
+            string a = this.dgvKhachHang.Rows[this.dgvKhachHang.Rows.Count - 2].Cells[0].Value.ToString();
+            int b = Convert.ToInt32(a.Substring(1)) + 1;
+            if (b < 10)
+            {
+                txtMaKH.Text = "K0" + b.ToString();
+            }
+            else
+            {
+                txtMaKH.Text = "N" + b.ToString();
             }
         }
     }

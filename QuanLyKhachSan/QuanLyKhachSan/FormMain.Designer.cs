@@ -38,9 +38,15 @@
             this.menuQLKhachHang = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQLNhanVien = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQLDichVu = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQLHopDong = new System.Windows.Forms.ToolStripMenuItem();
             this.menuThongKe = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuQLHopDong = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQLDV_KH = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQLPhong_HD = new System.Windows.Forms.ToolStripMenuItem();
+            this.hoạtĐộngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuNhanPhong = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuTraPhong = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQLHoaDon = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQLKS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +56,8 @@
             this.menuQLKS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuHethong,
             this.menuDanhmucQL,
-            this.menuThongKe});
+            this.menuThongKe,
+            this.hoạtĐộngToolStripMenuItem});
             this.menuQLKS.Location = new System.Drawing.Point(0, 0);
             this.menuQLKS.Name = "menuQLKS";
             this.menuQLKS.Size = new System.Drawing.Size(800, 28);
@@ -95,7 +102,10 @@
             this.menuQLKhachHang,
             this.menuQLNhanVien,
             this.menuQLDichVu,
-            this.menuQLHopDong});
+            this.menuQLHopDong,
+            this.menuQLDV_KH,
+            this.menuQLPhong_HD,
+            this.menuQLHoaDon});
             this.menuDanhmucQL.Name = "menuDanhmucQL";
             this.menuDanhmucQL.Size = new System.Drawing.Size(140, 24);
             this.menuDanhmucQL.Text = "Danh mục quản lý";
@@ -103,30 +113,37 @@
             // menuQLPhong
             // 
             this.menuQLPhong.Name = "menuQLPhong";
-            this.menuQLPhong.Size = new System.Drawing.Size(216, 26);
+            this.menuQLPhong.Size = new System.Drawing.Size(264, 26);
             this.menuQLPhong.Text = "Quản lý phòng";
             this.menuQLPhong.Click += new System.EventHandler(this.menuQLPhong_Click);
             // 
             // menuQLKhachHang
             // 
             this.menuQLKhachHang.Name = "menuQLKhachHang";
-            this.menuQLKhachHang.Size = new System.Drawing.Size(216, 26);
+            this.menuQLKhachHang.Size = new System.Drawing.Size(264, 26);
             this.menuQLKhachHang.Text = "Quản lý khách hàng";
             this.menuQLKhachHang.Click += new System.EventHandler(this.menuQLKhachHang_Click);
             // 
             // menuQLNhanVien
             // 
             this.menuQLNhanVien.Name = "menuQLNhanVien";
-            this.menuQLNhanVien.Size = new System.Drawing.Size(216, 26);
+            this.menuQLNhanVien.Size = new System.Drawing.Size(264, 26);
             this.menuQLNhanVien.Text = "Quản lý nhân viên";
             this.menuQLNhanVien.Click += new System.EventHandler(this.menuQLNhanVien_Click);
             // 
             // menuQLDichVu
             // 
             this.menuQLDichVu.Name = "menuQLDichVu";
-            this.menuQLDichVu.Size = new System.Drawing.Size(216, 26);
+            this.menuQLDichVu.Size = new System.Drawing.Size(264, 26);
             this.menuQLDichVu.Text = "Quản lý dịch vụ";
             this.menuQLDichVu.Click += new System.EventHandler(this.menuQLDichVu_Click);
+            // 
+            // menuQLHopDong
+            // 
+            this.menuQLHopDong.Name = "menuQLHopDong";
+            this.menuQLHopDong.Size = new System.Drawing.Size(264, 26);
+            this.menuQLHopDong.Text = "Quản lý hợp đồng";
+            this.menuQLHopDong.Click += new System.EventHandler(this.menuQLHopDong_Click);
             // 
             // menuThongKe
             // 
@@ -145,12 +162,48 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Quản lý khách sạn";
             // 
-            // menuQLHopDong
+            // menuQLDV_KH
             // 
-            this.menuQLHopDong.Name = "menuQLHopDong";
-            this.menuQLHopDong.Size = new System.Drawing.Size(216, 26);
-            this.menuQLHopDong.Text = "Quản lý hợp đồng";
-            this.menuQLHopDong.Click += new System.EventHandler(this.menuQLHopDong_Click);
+            this.menuQLDV_KH.Name = "menuQLDV_KH";
+            this.menuQLDV_KH.Size = new System.Drawing.Size(264, 26);
+            this.menuQLDV_KH.Text = "Quản lý dịch vụ khách hàng";
+            this.menuQLDV_KH.Click += new System.EventHandler(this.menuQLDV_KH_Click);
+            // 
+            // menuQLPhong_HD
+            // 
+            this.menuQLPhong_HD.Name = "menuQLPhong_HD";
+            this.menuQLPhong_HD.Size = new System.Drawing.Size(264, 26);
+            this.menuQLPhong_HD.Text = "Quản lý phòng khách hàng";
+            this.menuQLPhong_HD.Click += new System.EventHandler(this.menuQLPhong_HD_Click);
+            // 
+            // hoạtĐộngToolStripMenuItem
+            // 
+            this.hoạtĐộngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuNhanPhong,
+            this.menuTraPhong});
+            this.hoạtĐộngToolStripMenuItem.Name = "hoạtĐộngToolStripMenuItem";
+            this.hoạtĐộngToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.hoạtĐộngToolStripMenuItem.Text = "Hoạt động";
+            // 
+            // menuNhanPhong
+            // 
+            this.menuNhanPhong.Name = "menuNhanPhong";
+            this.menuNhanPhong.Size = new System.Drawing.Size(216, 26);
+            this.menuNhanPhong.Text = "Nhận phòng";
+            this.menuNhanPhong.Click += new System.EventHandler(this.menuNhanPhong_Click);
+            // 
+            // menuTraPhong
+            // 
+            this.menuTraPhong.Name = "menuTraPhong";
+            this.menuTraPhong.Size = new System.Drawing.Size(216, 26);
+            this.menuTraPhong.Text = "Trả phòng";
+            // 
+            // menuQLHoaDon
+            // 
+            this.menuQLHoaDon.Name = "menuQLHoaDon";
+            this.menuQLHoaDon.Size = new System.Drawing.Size(264, 26);
+            this.menuQLHoaDon.Text = "Quản lý hóa đơn";
+            this.menuQLHoaDon.Click += new System.EventHandler(this.menuQLHoaDon_Click);
             // 
             // FormMain
             // 
@@ -184,5 +237,11 @@
         private System.Windows.Forms.ToolStripMenuItem menuThongKe;
         private System.Windows.Forms.ToolStripMenuItem menuDangXuat;
         private System.Windows.Forms.ToolStripMenuItem menuQLHopDong;
+        private System.Windows.Forms.ToolStripMenuItem menuQLDV_KH;
+        private System.Windows.Forms.ToolStripMenuItem menuQLPhong_HD;
+        private System.Windows.Forms.ToolStripMenuItem hoạtĐộngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuNhanPhong;
+        private System.Windows.Forms.ToolStripMenuItem menuTraPhong;
+        private System.Windows.Forms.ToolStripMenuItem menuQLHoaDon;
     }
 }

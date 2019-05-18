@@ -30,6 +30,7 @@ namespace QuanLyKhachSan
             {
                 dgvNhanVien.DataSource = dbNV.LayNhanVien();
                 dgvNhanVien.AutoResizeColumns();
+                dgvNhanVien.Columns.Remove("Password");
                 //this.txtMaNV.ResetText();
                 //this.txtTenNV.ResetText();
                 this.panel1.ResetText();
@@ -51,6 +52,7 @@ namespace QuanLyKhachSan
         private void FormNhanVien_Load(object sender, EventArgs e)
         {
             LoadData();
+            cmb_NgaySinh.Enabled = false;
         }
 
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -59,11 +61,15 @@ namespace QuanLyKhachSan
             int r = dgvNhanVien.CurrentCell.RowIndex;
             this.txtMaNV.Text = dgvNhanVien.Rows[r].Cells[0].Value.ToString();
             this.txtTenNV.Text = dgvNhanVien.Rows[r].Cells[1].Value.ToString();
-            this.txtChucVu.Text = dgvNhanVien.Rows[r].Cells[2].Value.ToString();
+            this.cmb_ChucVu.Text = dgvNhanVien.Rows[r].Cells[2].Value.ToString();
             this.txtLuongNV.Text = dgvNhanVien.Rows[r].Cells[3].Value.ToString();
-            this.txtNgaySinh.Text = dgvNhanVien.Rows[r].Cells[4].Value.ToString();
+            this.dtime_NgaySinh.Value = Convert.ToDateTime(dgvNhanVien.Rows[r].Cells[4].Value.ToString());
             gioitinh = dgvNhanVien.Rows[r].Cells[5].Value.ToString();
-            this.txtPassword.Text = dgvNhanVien.Rows[r].Cells[6].Value.ToString();
+            if (gioitinh.Length == 3)
+            {
+                this.rbtn_Nam.Checked = true;
+            }
+            else this.rbtn_Nu.Checked = true;
         }
 
         private void btn_ReLoad_Click(object sender, EventArgs e)
@@ -74,8 +80,10 @@ namespace QuanLyKhachSan
         private void btn_Them_Click(object sender, EventArgs e)
         {
             Them = true;
-            this.txtMaNV.Enabled = true;
+           
+            this.txtMaNV.Enabled = false;
             ResetText();
+            SinhMa();
             this.btn_Luu.Enabled = true;
             this.btn_Huy.Enabled = true;
             this.panel1.Enabled = true;
@@ -101,6 +109,7 @@ namespace QuanLyKhachSan
             this.btn_Sua.Enabled = false;
             this.btn_Xoa.Enabled = false;
             this.txtMaNV.Enabled = false;
+            this.cmb_ChucVu.Enabled = false;
             this.txtTenNV.Focus();
         }
 
@@ -118,9 +127,8 @@ namespace QuanLyKhachSan
                 {
                     BLNhanVien blP = new BLNhanVien();
                     blP.ThemNhanVien(this.txtMaNV.Text, this.txtTenNV.Text,
-                    this.txtChucVu.Text, Convert.ToDouble(this.txtLuongNV.Text),
-                    this.txtNgaySinh.Text, gioitinh,
-                    this.txtPassword.Text, ref err);
+                    this.cmb_ChucVu.Text, Convert.ToDouble(this.txtLuongNV.Text),
+                    this.dtime_NgaySinh.Value.ToString(), gioitinh, ref err);
                     LoadData();
                     MessageBox.Show("Đã thêm xong!");
                 }
@@ -133,9 +141,9 @@ namespace QuanLyKhachSan
             {
                 BLNhanVien blP = new BLNhanVien();
                 blP.CapNhatNhanVien(this.txtMaNV.Text, this.txtTenNV.Text,
-                    this.txtChucVu.Text, Convert.ToDouble(this.txtLuongNV.Text),
-                    this.txtNgaySinh.Text, gioitinh,
-                    this.txtPassword.Text, ref err);
+                    this.cmb_ChucVu.Text, Convert.ToDouble(this.txtLuongNV.Text),
+                    this.dtime_NgaySinh.Value.Date.ToString(), gioitinh,
+                    ref err);
                 LoadData();
                 MessageBox.Show("Đã sửa xong!");
             }
@@ -151,6 +159,7 @@ namespace QuanLyKhachSan
             this.btn_Luu.Enabled = false;
             this.btn_Huy.Enabled = false;
             this.panel1.Enabled = false;
+            this.cmb_ChucVu.Enabled = true;
             dgvNhanVien_CellClick(null, null);
         }
 
@@ -180,12 +189,10 @@ namespace QuanLyKhachSan
         {
             this.txtMaNV.ResetText();
             this.txtTenNV.ResetText();
-            this.txtChucVu.ResetText();
+            this.cmb_ChucVu.Text= "";
             this.txtLuongNV.ResetText();
             rbtn_Nam.Checked = false;
             rbtn_Nu.Checked = false;
-            this.txtNgaySinh.ResetText();
-            this.txtPassword.ResetText();
         }
         private string checkGioiTinh()
         {
@@ -247,13 +254,64 @@ namespace QuanLyKhachSan
                 dgvNhanVien.DataSource = lstphantu;
                 dgvNhanVien.Refresh();
             }
-            if (this.cmb_TimKiem.Text == "Password")
+            if (this.cmb_TimKiem.Text == "Ngày sinh")
             {
-                var lstphantu = from lpt in db.NhanViens
-                                where lpt.Password.Contains(txtTimKiem.Text)
-                                select lpt;
-                dgvNhanVien.DataSource = lstphantu;
-                dgvNhanVien.Refresh();
+                if (this.cmb_NgaySinh.Text == "Ngày")
+                {
+                    var lstphantu = from lpt in db.NhanViens
+                                    where lpt.NgaySinh.Value.Day.ToString().Contains(txtTimKiem.Text)
+                                    select lpt;
+                    dgvNhanVien.DataSource = lstphantu;
+                    dgvNhanVien.Refresh();
+                }
+                if (this.cmb_NgaySinh.Text == "Tháng")
+                {
+                    var lstphantu = from lpt in db.NhanViens
+                                    where lpt.NgaySinh.Value.Month.ToString().Contains(txtTimKiem.Text)
+                                    select lpt;
+                    dgvNhanVien.DataSource = lstphantu;
+                    dgvNhanVien.Refresh();
+                }
+                if (this.cmb_NgaySinh.Text == "Năm")
+                {
+                    var lstphantu = from lpt in db.NhanViens
+                                    where lpt.NgaySinh.Value.Year.ToString().Contains(txtTimKiem.Text)
+                                    select lpt;
+                    dgvNhanVien.DataSource = lstphantu;
+                    dgvNhanVien.Refresh();
+                }
+            }
+            dgvNhanVien.Columns.Remove("Password");
+        }
+        private void SinhMa()
+        {
+            string a = this.dgvNhanVien.Rows[this.dgvNhanVien.Rows.Count - 2].Cells[0].Value.ToString();
+            int b = Convert.ToInt32(a.Substring(1)) + 1;
+            if(b<10)
+            {
+                txtMaNV.Text = "N0" + b.ToString();
+            }
+            else
+            {
+                txtMaNV.Text = "N" + b.ToString();
+            }
+        }
+
+        private void cmb_NgaySinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void cmb_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cmb_TimKiem.Text == "Ngày sinh")
+            {
+                cmb_NgaySinh.Enabled = true;
+            }
+            else
+            {
+                cmb_NgaySinh.Text = "";
+                cmb_NgaySinh.Enabled = false;
             }
         }
     }

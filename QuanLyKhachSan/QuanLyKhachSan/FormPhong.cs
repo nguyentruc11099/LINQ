@@ -27,9 +27,10 @@ namespace QuanLyKhachSan
         void LoadData()
         {
             try
-            {
+            {               
                 dgvPHONG.DataSource = dbPh.LayPhong();
                 dgvPHONG.AutoResizeColumns();
+                dgvPHONG.Columns.RemoveAt(6);
                 //this.txtMaPhong.ResetText();
                 //this.txtTenPhong.ResetText();
                 this.panel1.ResetText();
@@ -55,6 +56,11 @@ namespace QuanLyKhachSan
             this.txtMaPhong.Text = dgvPHONG.Rows[r].Cells[0].Value.ToString();
             this.cmb_LoaiPhong.Text = dgvPHONG.Rows[r].Cells[1].Value.ToString();
             tt = dgvPHONG.Rows[r].Cells[2].Value.ToString();
+            if (tt.Length == 5)
+            {
+                this.rbtn_Trong.Checked = true;
+            }
+            else this.rbtn_DaThue.Checked = true;
             this.txtGiaPhong.Text = dgvPHONG.Rows[r].Cells[3].Value.ToString();
             this.txtSDT.Text = dgvPHONG.Rows[r].Cells[4].Value.ToString();
             this.txtMaNV.Text = dgvPHONG.Rows[r].Cells[5].Value.ToString();
@@ -242,6 +248,7 @@ namespace QuanLyKhachSan
                 dgvPHONG.DataSource = lstphantu;
                 dgvPHONG.Refresh();
             }
+            dgvPHONG.Columns.RemoveAt(6);
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)

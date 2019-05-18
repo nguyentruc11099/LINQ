@@ -5,15 +5,16 @@
       <Column Name="MaDV" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenDV" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="GiaDV" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="DichVu_DichVu_HD" Member="DichVu_HDs" ThisKey="MaDV" OtherKey="MaDV" Type="DichVu_HD" />
+      <Association Name="DichVu_DichVuvaHD" Member="DichVuvaHDs" ThisKey="MaDV" OtherKey="MaDV" Type="DichVuvaHD" />
     </Type>
   </Table>
-  <Table Name="dbo.[DichVu&amp;HD]" Member="DichVu_HDs">
-    <Type Name="DichVu_HD">
-      <Column Name="MaHD" Type="System.String" DbType="NChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+  <Table Name="dbo.DichVuvaHD" Member="DichVuvaHDs">
+    <Type Name="DichVuvaHD">
+      <Column Name="MaHD" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MaDV" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="DichVu_DichVu_HD" Member="DichVu" ThisKey="MaDV" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
-      <Association Name="HopDong_DichVu_HD" Member="HopDong" ThisKey="MaHD" OtherKey="MaHopDong" Type="HopDong" IsForeignKey="true" />
+      <Column Name="SoNgaySD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DichVu_DichVuvaHD" Member="DichVu" ThisKey="MaDV" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
+      <Association Name="HopDong_DichVuvaHD" Member="HopDong" ThisKey="MaHD" OtherKey="MaHopDong" Type="HopDong" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.HoaDon" Member="HoaDons">
@@ -21,18 +22,20 @@
       <Column Name="MaHoaDon" Type="System.String" DbType="NChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MaKH" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
       <Column Name="NgayThue" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="NgayTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayTraPhong" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="GiaTien" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NgayXuatHoaDon" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="KhachHang_HoaDon" Member="KhachHang" ThisKey="MaKH" OtherKey="MaKH" Type="KhachHang" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.HopDong" Member="HopDongs">
     <Type Name="HopDong">
-      <Column Name="MaHopDong" Type="System.String" DbType="NChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaHopDong" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MaKH" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
       <Column Name="NgayThue" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="HopDong_DichVu_HD" Member="DichVu_HDs" ThisKey="MaHopDong" OtherKey="MaHD" Type="DichVu_HD" />
-      <Association Name="HopDong_Phong_HopDong" Member="Phong_HopDongs" ThisKey="MaHopDong" OtherKey="MaHD" Type="Phong_HopDong" />
+      <Column Name="NgayDuKienTraPhong" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="HopDong_DichVuvaHD" Member="DichVuvaHDs" ThisKey="MaHopDong" OtherKey="MaHD" Type="DichVuvaHD" />
+      <Association Name="HopDong_PhongvaHopDong" Member="PhongvaHopDongs" ThisKey="MaHopDong" OtherKey="MaHD" Type="PhongvaHopDong" />
       <Association Name="KhachHang_HopDong" Member="KhachHang" ThisKey="MaKH" OtherKey="MaKH" Type="KhachHang" IsForeignKey="true" />
     </Type>
   </Table>
@@ -43,6 +46,7 @@
       <Column Name="CMND" Type="System.String" DbType="NChar(9)" CanBeNull="true" />
       <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="SDT" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
+      <Column Name="XuatXu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Association Name="KhachHang_HoaDon" Member="HoaDons" ThisKey="MaKH" OtherKey="MaKH" Type="HoaDon" />
       <Association Name="KhachHang_HopDong" Member="HopDongs" ThisKey="MaKH" OtherKey="MaKH" Type="HopDong" />
     </Type>
@@ -59,6 +63,14 @@
       <Association Name="NhanVien_Phong" Member="Phongs" ThisKey="MaNV" OtherKey="MaNV" Type="Phong" />
     </Type>
   </Table>
+  <Table Name="dbo.NguoiDat" Member="NguoiDats">
+    <Type Name="NguoiDat">
+      <Column Name="MaNguoiDat" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNguoiDat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="NgayHetHan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Phong" Member="Phongs">
     <Type Name="Phong">
       <Column Name="MaPhong" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -67,16 +79,22 @@
       <Column Name="GiaPhong" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="SDT" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
       <Column Name="MaNV" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
-      <Association Name="Phong_Phong_HopDong" Member="Phong_HopDongs" ThisKey="MaPhong" OtherKey="MaPhong" Type="Phong_HopDong" />
+      <Association Name="Phong_PhongvaHopDong" Member="PhongvaHopDongs" ThisKey="MaPhong" OtherKey="MaPhong" Type="PhongvaHopDong" />
       <Association Name="NhanVien_Phong" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.[Phong&amp;HopDong]" Member="Phong_HopDongs">
-    <Type Name="Phong_HopDong">
+  <Table Name="dbo.PhongvaHopDong" Member="PhongvaHopDongs">
+    <Type Name="PhongvaHopDong">
       <Column Name="MaPhong" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MaHD" Type="System.String" DbType="NChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="HopDong_Phong_HopDong" Member="HopDong" ThisKey="MaHD" OtherKey="MaHopDong" Type="HopDong" IsForeignKey="true" />
-      <Association Name="Phong_Phong_HopDong" Member="Phong" ThisKey="MaPhong" OtherKey="MaPhong" Type="Phong" IsForeignKey="true" />
+      <Column Name="MaHD" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="HopDong_PhongvaHopDong" Member="HopDong" ThisKey="MaHD" OtherKey="MaHopDong" Type="HopDong" IsForeignKey="true" />
+      <Association Name="Phong_PhongvaHopDong" Member="Phong" ThisKey="MaPhong" OtherKey="MaPhong" Type="Phong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhongvaNguoiDat" Member="PhongvaNguoiDats">
+    <Type Name="PhongvaNguoiDat">
+      <Column Name="MaNguoiDat" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaPhong" Type="System.String" DbType="NChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

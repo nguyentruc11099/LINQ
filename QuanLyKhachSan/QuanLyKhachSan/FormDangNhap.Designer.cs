@@ -102,7 +102,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(222, 22);
             this.txtPass.TabIndex = 4;
-            this.txtPass.Text = "aaaaa";
+            this.txtPass.Text = "a";
             // 
             // txtID
             // 
