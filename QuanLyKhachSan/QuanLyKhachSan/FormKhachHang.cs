@@ -155,7 +155,7 @@ namespace QuanLyKhachSan
 
         private void btn_Trove_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void FormKhachHang_Load(object sender, EventArgs e)
@@ -270,6 +270,11 @@ namespace QuanLyKhachSan
             {
                 txtMaKH.Text = "N" + b.ToString();
             }
+        }
+
+        private void cmb_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -65,11 +65,18 @@
     <Compile Include="BS Layer\BLNhanVien.cs" />
     <Compile Include="BS Layer\BLPhong.cs" />
     <Compile Include="BS Layer\BLPhong_HD.cs" />
+    <Compile Include="BS Layer\BL_TraPhong.cs" />
     <Compile Include="FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDatPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDatPhong.Designer.cs">
+      <DependentUpon>FormDatPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDichVu.cs">
       <SubType>Form</SubType>
@@ -131,6 +138,12 @@
     <Compile Include="Form_NhanPhong.Designer.cs">
       <DependentUpon>Form_NhanPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_TraPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TraPhong.Designer.cs">
+      <DependentUpon>Form_TraPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyKhachSan.designer.cs">
@@ -138,6 +151,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyKhachSan.dbml</DependentUpon>
     </Compile>
+    <Compile Include="System\Data\Linq\ITable.cs" />
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_NhanPhong.resx">
       <DependentUpon>Form_NhanPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TraPhong.resx">
+      <DependentUpon>Form_TraPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

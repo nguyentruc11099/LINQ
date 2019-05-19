@@ -39,7 +39,6 @@ namespace QuanLyKhachSan
                 this.btn_Huy.Enabled = false;
                 this.panel1.Enabled = false;
                 // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát                  
-                this.btn_Them.Enabled = true;
                 this.btn_Sua.Enabled = true;
                 this.btn_Xoa.Enabled = true;
                 this.btn_Trove.Enabled = true;
@@ -93,7 +92,6 @@ namespace QuanLyKhachSan
         private void btn_Huy_Click(object sender, EventArgs e)
         {
             ResetText();
-            this.btn_Them.Enabled = true;
             this.btn_Sua.Enabled = true;
             this.btn_Xoa.Enabled = true;
 
@@ -101,23 +99,6 @@ namespace QuanLyKhachSan
             this.btn_Huy.Enabled = false;
             this.panel1.Enabled = false;
             dgvPhong_HD_CellClick(null, null);
-        }
-
-        private void btn_Them_Click(object sender, EventArgs e)
-        {
-            Them = true;
-            this.txtMaHD.Enabled = true;
-            ResetText();
-            this.btn_Luu.Enabled = true;
-            this.btn_Huy.Enabled = true;
-            this.panel1.Enabled = true;
-
-            this.btn_Them.Enabled = false;
-            this.btn_Sua.Enabled = false;
-            this.btn_Xoa.Enabled = false;
-            this.btn_Trove.Enabled = false;
-
-            this.txtMaHD.Focus();
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
@@ -129,7 +110,6 @@ namespace QuanLyKhachSan
             this.btn_Luu.Enabled = true;
             this.btn_Huy.Enabled = true;
             this.panel1.Enabled = true;
-            this.btn_Them.Enabled = false;
             this.btn_Sua.Enabled = false;
             this.btn_Xoa.Enabled = false;
             this.txtMaHD.Enabled = false;
@@ -161,7 +141,7 @@ namespace QuanLyKhachSan
 
         private void btn_Trove_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)

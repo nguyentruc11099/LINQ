@@ -113,7 +113,7 @@ namespace QuanLyKhachSan
 
         private void btn_Trove_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)

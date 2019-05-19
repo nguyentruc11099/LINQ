@@ -37,10 +37,6 @@
             this.btn_ThemHD = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvHD = new System.Windows.Forms.DataGridView();
-            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_Phong = new System.Windows.Forms.Panel();
             this.btn_ChonPhong = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,12 +44,6 @@
             this.Search_ComboBox = new System.Windows.Forms.ComboBox();
             this.Search_TextBox = new System.Windows.Forms.TextBox();
             this.dgvPHONG = new System.Windows.Forms.DataGridView();
-            this.MaPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LoaiPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_KH = new System.Windows.Forms.Panel();
             this.btn_ChonKH = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -61,11 +51,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvKH = new System.Windows.Forms.DataGridView();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.XuatXu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtime_Today = new System.Windows.Forms.DateTimePicker();
             this.panel_ThemKH = new System.Windows.Forms.Panel();
             this.txtTenKH = new System.Windows.Forms.TextBox();
@@ -87,6 +72,21 @@
             this.dtime_NgayDuKien = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.XuatXu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LoaiPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_HD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUD_SoNgayDuKien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHD)).BeginInit();
@@ -184,33 +184,6 @@
             this.dgvHD.Size = new System.Drawing.Size(629, 79);
             this.dgvHD.TabIndex = 41;
             // 
-            // MaHD
-            // 
-            this.MaHD.DataPropertyName = "MaHopDong";
-            this.MaHD.HeaderText = "Mã Hợp Đồng";
-            this.MaHD.Name = "MaHD";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "DS_Phòng thuê";
-            this.Column1.Name = "Column1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "MaKH";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mã Khách Hàng";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // NgayThue
-            // 
-            this.NgayThue.DataPropertyName = "NgayThue";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle1.NullValue = null;
-            this.NgayThue.DefaultCellStyle = dataGridViewCellStyle1;
-            this.NgayThue.HeaderText = "Ngày Bắt Đầu Thuê";
-            this.NgayThue.Name = "NgayThue";
-            // 
             // panel_Phong
             // 
             this.panel_Phong.Controls.Add(this.btn_ChonPhong);
@@ -298,42 +271,6 @@
             this.dgvPHONG.TabIndex = 22;
             this.dgvPHONG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPHONG_CellClick);
             // 
-            // MaPhong
-            // 
-            this.MaPhong.DataPropertyName = "MaPhong";
-            this.MaPhong.HeaderText = "Mã Phòng";
-            this.MaPhong.Name = "MaPhong";
-            // 
-            // LoaiPhong
-            // 
-            this.LoaiPhong.DataPropertyName = "LoaiPhong";
-            this.LoaiPhong.HeaderText = "Loại Phòng";
-            this.LoaiPhong.Name = "LoaiPhong";
-            // 
-            // TinhTrang
-            // 
-            this.TinhTrang.DataPropertyName = "TinhTrang";
-            this.TinhTrang.HeaderText = "Tình Trạng";
-            this.TinhTrang.Name = "TinhTrang";
-            // 
-            // GiaPhong
-            // 
-            this.GiaPhong.DataPropertyName = "GiaPhong";
-            this.GiaPhong.HeaderText = "Giá Phòng";
-            this.GiaPhong.Name = "GiaPhong";
-            // 
-            // SDT
-            // 
-            this.SDT.DataPropertyName = "SDT";
-            this.SDT.HeaderText = "SĐT";
-            this.SDT.Name = "SDT";
-            // 
-            // MaNV
-            // 
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.HeaderText = "Nhân Viên Phụ Trách";
-            this.MaNV.Name = "MaNV";
-            // 
             // panel_KH
             // 
             this.panel_KH.Controls.Add(this.btn_ChonKH);
@@ -419,36 +356,6 @@
             this.dgvKH.Size = new System.Drawing.Size(755, 159);
             this.dgvKH.TabIndex = 24;
             this.dgvKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKH_CellClick);
-            // 
-            // MaKH
-            // 
-            this.MaKH.DataPropertyName = "MaKH";
-            this.MaKH.HeaderText = "Mã Khách Hàng";
-            this.MaKH.Name = "MaKH";
-            // 
-            // TenKH
-            // 
-            this.TenKH.DataPropertyName = "TenKH";
-            this.TenKH.HeaderText = "Tên Khách Hàng";
-            this.TenKH.Name = "TenKH";
-            // 
-            // CMND
-            // 
-            this.CMND.DataPropertyName = "CMND";
-            this.CMND.HeaderText = "CMND";
-            this.CMND.Name = "CMND";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "SDT";
-            this.dataGridViewTextBoxColumn1.HeaderText = "SĐT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // XuatXu
-            // 
-            this.XuatXu.DataPropertyName = "XuatXu";
-            this.XuatXu.HeaderText = "Xuất Xứ";
-            this.XuatXu.Name = "XuatXu";
             // 
             // dtime_Today
             // 
@@ -663,6 +570,114 @@
             this.label5.TabIndex = 40;
             this.label5.Text = "Ngày dự kiến";
             // 
+            // MaKH
+            // 
+            this.MaKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaKH.DataPropertyName = "MaKH";
+            this.MaKH.HeaderText = "Mã Khách Hàng";
+            this.MaKH.Name = "MaKH";
+            // 
+            // TenKH
+            // 
+            this.TenKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenKH.DataPropertyName = "TenKH";
+            this.TenKH.HeaderText = "Tên Khách Hàng";
+            this.TenKH.Name = "TenKH";
+            // 
+            // CMND
+            // 
+            this.CMND.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "SDT";
+            this.dataGridViewTextBoxColumn1.HeaderText = "SĐT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // XuatXu
+            // 
+            this.XuatXu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.XuatXu.DataPropertyName = "XuatXu";
+            this.XuatXu.HeaderText = "Xuất Xứ";
+            this.XuatXu.Name = "XuatXu";
+            // 
+            // MaPhong
+            // 
+            this.MaPhong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaPhong.DataPropertyName = "MaPhong";
+            this.MaPhong.HeaderText = "Mã Phòng";
+            this.MaPhong.Name = "MaPhong";
+            // 
+            // LoaiPhong
+            // 
+            this.LoaiPhong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.LoaiPhong.DataPropertyName = "LoaiPhong";
+            this.LoaiPhong.HeaderText = "Loại Phòng";
+            this.LoaiPhong.Name = "LoaiPhong";
+            // 
+            // TinhTrang
+            // 
+            this.TinhTrang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TinhTrang.DataPropertyName = "TinhTrang";
+            this.TinhTrang.HeaderText = "Tình Trạng";
+            this.TinhTrang.Name = "TinhTrang";
+            // 
+            // GiaPhong
+            // 
+            this.GiaPhong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GiaPhong.DataPropertyName = "GiaPhong";
+            this.GiaPhong.HeaderText = "Giá Phòng";
+            this.GiaPhong.Name = "GiaPhong";
+            // 
+            // SDT
+            // 
+            this.SDT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SDT.DataPropertyName = "SDT";
+            this.SDT.HeaderText = "SĐT";
+            this.SDT.Name = "SDT";
+            // 
+            // MaNV
+            // 
+            this.MaNV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Nhân Viên Phụ Trách";
+            this.MaNV.Name = "MaNV";
+            // 
+            // MaHD
+            // 
+            this.MaHD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaHD.DataPropertyName = "MaHopDong";
+            this.MaHD.HeaderText = "Mã Hợp Đồng";
+            this.MaHD.Name = "MaHD";
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "DS_Phòng thuê";
+            this.Column1.Name = "Column1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "MaKH";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Mã Khách Hàng";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // NgayThue
+            // 
+            this.NgayThue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NgayThue.DataPropertyName = "NgayThue";
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.NgayThue.DefaultCellStyle = dataGridViewCellStyle1;
+            this.NgayThue.HeaderText = "Ngày Bắt Đầu Thuê";
+            this.NgayThue.Name = "NgayThue";
+            // 
             // Form_NhanPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -713,12 +728,6 @@
         private System.Windows.Forms.ComboBox Search_ComboBox;
         private System.Windows.Forms.TextBox Search_TextBox;
         private System.Windows.Forms.DataGridView dgvPHONG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiPhong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GiaPhong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
         private System.Windows.Forms.Panel panel_KH;
         private System.Windows.Forms.Button btn_ChonKH;
         private System.Windows.Forms.Panel panel2;
@@ -726,11 +735,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dgvKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn XuatXu;
         private System.Windows.Forms.DateTimePicker dtime_Today;
         private System.Windows.Forms.Panel panel_ThemKH;
         private System.Windows.Forms.TextBox txtTenKH;
@@ -749,10 +753,6 @@
         private System.Windows.Forms.Label MaKH_Label;
         private System.Windows.Forms.RadioButton rbtn_new;
         private System.Windows.Forms.RadioButton rbtn_old;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayThue;
         private System.Windows.Forms.TextBox txtMaHD;
         private System.Windows.Forms.DateTimePicker dtime_NgayDuKien;
         private System.Windows.Forms.Label label4;
@@ -760,5 +760,20 @@
         private System.Windows.Forms.Button btn_Reset;
         private System.Windows.Forms.NumericUpDown numUD_SoNgayDuKien;
         private System.Windows.Forms.Label SoNgayDuKien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayThue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiPhong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaPhong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn XuatXu;
     }
 }

@@ -35,11 +35,13 @@ namespace QuanLyKhachSan
                     this.menuDanhmucQL.Enabled = true;
                     this.menuThoat.Enabled = true;
                     this.menuThongKe.Enabled = true;
+                    this.menuHoatDong.Enabled = true;
                 }
                 else
                 {
                     this.menuDanhmucQL.Enabled = true;
                     this.menuThoat.Enabled = true;
+                    this.menuHoatDong.Enabled = true;
 
                 }
                 this.menuDangXuat.Enabled = true;
@@ -86,7 +88,7 @@ namespace QuanLyKhachSan
                 menuDanhmucQL.Enabled = false;
                 menuThongKe.Enabled = false;
                 menuDangXuat.Enabled = false;
-
+                menuHoatDong.Enabled = false;
             }
         }
 
@@ -134,6 +136,13 @@ namespace QuanLyKhachSan
         private void menuNhanPhong_Click(object sender, EventArgs e)
         {
             Form_NhanPhong a1 = new Form_NhanPhong();
+            a1.IsMdiContainer = this.IsMdiContainer;
+            a1.Show();
+        }
+
+        private void menuTraPhong_Click(object sender, EventArgs e)
+        {
+            Form_TraPhong a1 = new Form_TraPhong();
             a1.IsMdiContainer = this.IsMdiContainer;
             a1.Show();
         }

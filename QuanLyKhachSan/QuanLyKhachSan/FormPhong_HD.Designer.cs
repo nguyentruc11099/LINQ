@@ -35,7 +35,6 @@
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Huy = new System.Windows.Forms.Button();
-            this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Reload = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -44,8 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPhong_HD = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhong_HD)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +79,7 @@
             // 
             // btn_Trove
             // 
-            this.btn_Trove.Location = new System.Drawing.Point(510, 433);
+            this.btn_Trove.Location = new System.Drawing.Point(359, 433);
             this.btn_Trove.Name = "btn_Trove";
             this.btn_Trove.Size = new System.Drawing.Size(105, 33);
             this.btn_Trove.TabIndex = 52;
@@ -100,7 +99,7 @@
             // 
             // btn_Sua
             // 
-            this.btn_Sua.Location = new System.Drawing.Point(359, 433);
+            this.btn_Sua.Location = new System.Drawing.Point(206, 433);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(105, 33);
             this.btn_Sua.TabIndex = 50;
@@ -117,16 +116,6 @@
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.UseVisualStyleBackColor = true;
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
-            // 
-            // btn_Them
-            // 
-            this.btn_Them.Location = new System.Drawing.Point(206, 433);
-            this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(105, 33);
-            this.btn_Them.TabIndex = 48;
-            this.btn_Them.Text = "Thêm";
-            this.btn_Them.UseVisualStyleBackColor = true;
-            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // btn_Luu
             // 
@@ -204,19 +193,19 @@
             this.dgvPhong_HD.TabIndex = 44;
             this.dgvPhong_HD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhong_HD_CellClick);
             // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "MaPhong";
-            this.Column2.HeaderText = "Mã phòng";
-            this.Column2.Name = "Column2";
-            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.DataPropertyName = "MaHD";
             this.Column1.HeaderText = "Mã hợp đồng";
             this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "MaPhong";
+            this.Column2.HeaderText = "Mã phòng";
+            this.Column2.Name = "Column2";
             // 
             // FormPhong_HD
             // 
@@ -230,7 +219,6 @@
             this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btn_Sua);
             this.Controls.Add(this.btn_Huy);
-            this.Controls.Add(this.btn_Them);
             this.Controls.Add(this.btn_Luu);
             this.Controls.Add(this.btn_Reload);
             this.Controls.Add(this.panel1);
@@ -255,7 +243,6 @@
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_Sua;
         private System.Windows.Forms.Button btn_Huy;
-        private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.Button btn_Luu;
         private System.Windows.Forms.Button btn_Reload;
         private System.Windows.Forms.Panel panel1;

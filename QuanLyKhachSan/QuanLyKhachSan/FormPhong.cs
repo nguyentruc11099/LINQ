@@ -100,13 +100,14 @@ namespace QuanLyKhachSan
             this.btn_Them.Enabled = false;
             this.btn_Sua.Enabled = false;
             this.btn_Xoa.Enabled = false;
+            rbtn_DaThue.Enabled = rbtn_Trong.Enabled = false;
             this.txtMaPhong.Enabled = false;
             this.txtGiaPhong.Focus();
         }
 
         private void btn_Trove_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)

@@ -174,9 +174,10 @@ namespace QuanLyKhachSan
         }
         private void ResetHD()
         {
-            panel_ThemKH.ResetText();
-            panel_KH.Enabled = false;
+            panel_ThemKH.Enabled = false;
             dgvHD.Rows.Clear();
+            dgvHD.Rows[0].Cells[3].Value = dtime_Today.Value.Date;
+           
         }
 
         private void dtime_Today_ValueChanged(object sender, EventArgs e)
