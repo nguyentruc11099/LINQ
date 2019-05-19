@@ -24,3 +24,30 @@ D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKha
 D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormPhong_HD.resources
 D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.Form_NhanPhong.resources
 D:\Năm 2\LTWIN\New folder (3)\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.Form_TraPhong.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\bin\Debug\QuanLyKhachSan.exe.config
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\bin\Debug\QuanLyKhachSan.exe
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\bin\Debug\QuanLyKhachSan.pdb
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\bin\Debug\EntityFramework.dll
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\bin\Debug\EntityFramework.SqlServer.dll
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\bin\Debug\EntityFramework.xml
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\bin\Debug\EntityFramework.SqlServer.xml
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.csprojAssemblyReference.cache
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormDangNhap.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormDichVu.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormDichVu_HopDong.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormHoaDon.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormHopDong.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormKhachHang.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormMain.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormNhanVien.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormPhong.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormPhong_HD.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.Form_NhanPhong.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.Form_TraPhong.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.Properties.Resources.resources
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.csproj.GenerateResource.cache
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.csproj.CoreCompileInputs.cache
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.csproj.CopyComplete
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.exe
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.pdb
+D:\LINQ\LINQ\QuanLyKhachSan\QuanLyKhachSan\obj\Debug\QuanLyKhachSan.FormDatPhong.resources

@@ -29,9 +29,16 @@ namespace QuanLyKhachSan
             try
             {
                 dgvPhong_HD.DataSource = dbNV.LayPhong_HD();
-                dgvPhong_HD.AutoResizeColumns();
+                QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+                var inpt = from p in db.PhongvaHopDongs
+                           where p.Hide == false
+                           select p;
+                dgvPhong_HD.DataSource = inpt;
+                dgvPhong_HD.Refresh();
+                dgvPhong_HD.Columns.RemoveAt(4);
                 dgvPhong_HD.Columns.RemoveAt(3);
                 dgvPhong_HD.Columns.RemoveAt(2);
+                dgvPhong_HD.AutoResizeColumns();
                 //this.txtMaHD.ResetText();
                 //this.textBox2.ResetText();
                 this.panel1.ResetText();
@@ -161,6 +168,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.PhongvaHopDongs
                                 where lpt.MaHD.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvPhong_HD.DataSource = lstphantu;
                 dgvPhong_HD.Refresh();
@@ -169,10 +177,12 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.PhongvaHopDongs
                                 where lpt.MaPhong.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvPhong_HD.DataSource = lstphantu;
                 dgvPhong_HD.Refresh();
             }
+            dgvPhong_HD.Columns.RemoveAt(4);
             dgvPhong_HD.Columns.RemoveAt(3);
             dgvPhong_HD.Columns.RemoveAt(2);
         }

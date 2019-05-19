@@ -25,6 +25,7 @@ namespace QuanLyKhachSan.BS_Layer
             dv.MaDV = MaDV;
             dv.TenDV = TenDV;
             dv.GiaDV = GiaDV;
+            dv.Hide = false;
             qlks.DichVus.InsertOnSubmit(dv);
             qlks.DichVus.Context.SubmitChanges();
             return true;
@@ -33,10 +34,12 @@ namespace QuanLyKhachSan.BS_Layer
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             DichVu dv = new DichVu();
-            var dvQuery = from dvu in qlks.DichVus
+            var dvQuery = (from dvu in qlks.DichVus
                           where dvu.MaDV == MaDV
-                          select dvu;
-            qlks.DichVus.DeleteAllOnSubmit(dvQuery);
+                          where dv.Hide == false
+                          select dvu).SingleOrDefault();
+            dvQuery.Hide = true;
+            //qlks.DichVus.DeleteAllOnSubmit(dvQuery);
             qlks.SubmitChanges();
             return true;
         }
@@ -45,6 +48,7 @@ namespace QuanLyKhachSan.BS_Layer
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             var dvQuery = (from dvu in qlks.DichVus
                            where dvu.MaDV == MaDV
+                           where dvu.Hide == false
                            select dvu).SingleOrDefault();
             if (dvQuery != null)
             {

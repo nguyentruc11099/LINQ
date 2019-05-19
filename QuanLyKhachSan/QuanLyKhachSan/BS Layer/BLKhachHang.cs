@@ -29,6 +29,7 @@ namespace QuanLyKhachSan.BS_Layer
             ph.GioiTinh = GioiTinh;
             ph.SDT = SDT;
             ph.XuatXu = XuatXu;
+            ph.Hide = false;
             qlks.KhachHangs.InsertOnSubmit(ph);
             qlks.KhachHangs.Context.SubmitChanges();
             return true;
@@ -37,10 +38,12 @@ namespace QuanLyKhachSan.BS_Layer
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             KhachHang ph = new KhachHang();
-            var phQuery = from phg in qlks.KhachHangs
+            var phQuery = (from phg in qlks.KhachHangs
                           where phg.MaKH == MaKH
-                          select phg;
-            qlks.KhachHangs.DeleteAllOnSubmit(phQuery);
+                          where phg.Hide == false
+                          select phg).SingleOrDefault();
+            phQuery.Hide = true;
+            //qlks.KhachHangs.DeleteAllOnSubmit(phQuery);
             qlks.SubmitChanges();
             return true;
         }
@@ -49,6 +52,7 @@ namespace QuanLyKhachSan.BS_Layer
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             var phQuery = (from phg in qlks.KhachHangs
                            where phg.MaKH == MaKH
+                           where phg.Hide == false
                            select phg).SingleOrDefault();
             if (phQuery != null)
             {

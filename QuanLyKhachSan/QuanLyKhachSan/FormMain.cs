@@ -146,5 +146,12 @@ namespace QuanLyKhachSan
             a1.IsMdiContainer = this.IsMdiContainer;
             a1.Show();
         }
+
+        private void menuDatPhong_Click(object sender, EventArgs e)
+        {
+            FormDatPhong a1 = new FormDatPhong();
+            a1.IsMdiContainer = this.IsMdiContainer;
+            a1.Show();
+        }
     }
 }

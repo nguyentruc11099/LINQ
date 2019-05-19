@@ -30,8 +30,16 @@ namespace QuanLyKhachSan
             {
                 dgvDV_HD.DataSource = dbNV.LayDichVuvaHD();
                 dgvDV_HD.AutoResizeColumns();
+                QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+                var inpt = from p in db.DichVuvaHDs
+                           where p.Hide == false
+                           select p;
+                dgvDV_HD.DataSource = inpt;
+                dgvDV_HD.Refresh();
+                dgvDV_HD.Columns.RemoveAt(5);
                 dgvDV_HD.Columns.RemoveAt(4);
                 dgvDV_HD.Columns.RemoveAt(3);
+                dgvDV_HD.AutoResizeColumns();
                 //this.txtMaHD.ResetText();
                 //this.textBox2.ResetText();
                 this.panel1.ResetText();
@@ -151,6 +159,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.DichVuvaHDs
                                 where lpt.MaHD.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvDV_HD.DataSource = lstphantu;
                 dgvDV_HD.Refresh();
@@ -159,6 +168,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.DichVuvaHDs
                                 where lpt.MaDV.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvDV_HD.DataSource = lstphantu;
                 dgvDV_HD.Refresh();
@@ -167,10 +177,12 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.DichVuvaHDs
                                 where lpt.SoNgaySD.ToString().Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvDV_HD.DataSource = lstphantu;
                 dgvDV_HD.Refresh();
             }
+            dgvDV_HD.Columns.RemoveAt(5);
             dgvDV_HD.Columns.RemoveAt(4);
             dgvDV_HD.Columns.RemoveAt(3);
         }

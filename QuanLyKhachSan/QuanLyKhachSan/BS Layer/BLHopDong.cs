@@ -26,6 +26,7 @@ namespace QuanLyKhachSan.BS_Layer
             hdg.MaKH = MaKH;
             hdg.NgayThue = Convert.ToDateTime(NgayThue);
             hdg.NgayDuKienTraPhong = Convert.ToDateTime(NgayDuKienTraPhong);
+            hdg.Hide = false;
             qlks.HopDongs.InsertOnSubmit(hdg);
             qlks.HopDongs.Context.SubmitChanges();
             return true;
@@ -34,10 +35,12 @@ namespace QuanLyKhachSan.BS_Layer
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             HopDong hdg = new HopDong();
-            var hdgQuery = from hdog in qlks.HopDongs
+            var hdgQuery = (from hdog in qlks.HopDongs
                           where hdog.MaHopDong == MaHopDong
-                          select hdog;
-            qlks.HopDongs.DeleteAllOnSubmit(hdgQuery);
+                          where hdog.Hide == false
+                          select hdog).SingleOrDefault();
+            hdgQuery.Hide = true;
+            //qlks.HopDongs.DeleteAllOnSubmit(hdgQuery);
             qlks.SubmitChanges();
             return true;
         }
@@ -46,6 +49,7 @@ namespace QuanLyKhachSan.BS_Layer
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             var hdgQuery = (from hdog in qlks.HopDongs
                            where hdog.MaHopDong == MaHopDong
+                           where hdog.Hide == false
                            select hdog).SingleOrDefault();
             if (hdgQuery != null)
             {

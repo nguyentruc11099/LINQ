@@ -37,6 +37,8 @@ namespace QuanLyKhachSan
                 QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
                 var joinres = (from p in db.HopDongs
                               join t in db.KhachHangs on p.MaKH equals t.MaKH
+                              where p.Hide == false
+                              where t.Hide == false
                               select new
                               {
                                   MaHopDong = p.MaHopDong,
@@ -77,6 +79,8 @@ namespace QuanLyKhachSan
                 var lstphantu = (from p in db.HopDongs
                                join t in db.KhachHangs on p.MaKH equals t.MaKH
                                where p.MaKH.Contains(txtTimKiem.Text)
+                               where p.Hide ==false
+                               where t.Hide == false
                                select new
                                {
                                    MaHopDong = p.MaHopDong,
@@ -93,6 +97,8 @@ namespace QuanLyKhachSan
                 var lstphantu = (from p in db.HopDongs
                                  join t in db.KhachHangs on p.MaKH equals t.MaKH
                                  where t.TenKH.Contains(txtTimKiem.Text)
+                                 where p.Hide==false
+                                 where t.Hide == false
                                  select new
                                  {
                                      MaHopDong = p.MaHopDong,
@@ -109,6 +115,8 @@ namespace QuanLyKhachSan
                 var lstphantu = (from p in db.HopDongs
                                  join t in db.KhachHangs on p.MaKH equals t.MaKH
                                  where p.MaHopDong.Contains(txtTimKiem.Text)
+                                 where p.Hide == false
+                                 where t.Hide == false
                                  select new
                                  {
                                      MaHopDong = p.MaHopDong,
@@ -131,6 +139,9 @@ namespace QuanLyKhachSan
                              join lpt1 in db.Phongs on lpt.MaPhong equals lpt1.MaPhong
                              join lpt3 in db.HopDongs on lpt.MaHD equals lpt3.MaHopDong
                             where lpt.MaHD.Contains(dgvHopDong.Rows[r].Cells[0].Value.ToString())
+                            where lpt3.Hide == false
+                            where lpt.Hide == false
+                            where lpt1.Hide == false
                             select new
                             {
                                 MaHD = lpt.MaHD,
@@ -147,6 +158,7 @@ namespace QuanLyKhachSan
                               join lpt1 in db.DichVus on lpt.MaDV equals lpt1.MaDV
                               join lpt2 in db.HopDongs on lpt.MaHD equals lpt2.MaHopDong
                               where lpt.MaHD.Contains(dgvHopDong.Rows[r].Cells[0].Value.ToString())
+                              where lpt2.Hide == false
                               select new
                               {
                                   MaHD = lpt.MaHD,
@@ -206,38 +218,48 @@ namespace QuanLyKhachSan
             BLHoaDon dbHoaDon = new BLHoaDon();
             SinhMa();
             int r = dgvHopDong.CurrentCell.RowIndex;
-            //dbHoaDon.ThemHoaDon(MaHoaDon, dgvHopDong.Rows[r].Cells[1].Value.ToString(),
-            //    dgvHopDong.Rows[r].Cells[3].Value.ToString(),
-            //    dgvHopDong.Rows[r].Cells[4].Value.ToString(), S,
-            //    dtime_Today.Value.Date.ToString(), ref err);
-
-
+            string x = dgvHopDong.Rows[r].Cells[1].Value.ToString();
+            string y = dgvHopDong.Rows[r].Cells[3].Value.ToString();
+            string z = dgvHopDong.Rows[r].Cells[4].Value.ToString();
             for (int i = 0; i < dgvPhong_HD.Rows.Count; i++)
             {
                 BL_TraPhong dbTra = new BL_TraPhong();
                 dbTra.CapNhatPhong(dgvPhong_HD.Rows[i].Cells[1].Value.ToString(), "Trống");
             }
-            dgvDV_HD.Rows.Clear();
-            dgvPhong_HD.Rows.Clear();
-            dbDV_HD.XoaDichVuvaHD(ref err, dgvHopDong.Rows[r].Cells[0].Value.ToString());
-            dbP_HD.XoaPhong_HD(ref err, dgvHopDong.Rows[r].Cells[0].Value.ToString());
-            dbHD.XoaHopDong(ref err, dgvHopDong.Rows[r].Cells[0].Value.ToString());
-            panel1.ResetText();
-            if (dgvPhong_HD.Rows.Count == 0)
+            for (int j = 0; j < dgvDV_HD.Rows.Count; j++)
             {
+                j = dgvDV_HD.CurrentCell.RowIndex;
+                BL_TraPhong dbTra = new BL_TraPhong();
+                dbTra.CapNhatDV_HD(dgvHopDong.Rows[j].Cells[0].Value.ToString(), true);
+                dgvDV_HD.Rows.RemoveAt(j);
+            }
+            for (int k = 0; k < dgvPhong_HD.Rows.Count; k++)
+            {
+                k = dgvPhong_HD.CurrentCell.RowIndex;
+                BL_TraPhong dbTra = new BL_TraPhong();
+                dbTra.CapNhatPhong_HD(dgvHopDong.Rows[k].Cells[0].Value.ToString(), true);
+                dgvPhong_HD.Rows.RemoveAt(k);
+            }
+           
+            //dbHD.XoaHopDong(ref err, dgvHopDong.Rows[r].Cells[0].Value.ToString());
+            panel1.ResetText();
+            if (dgvPhong_HD.Rows.Count == 0 && dgvDV_HD.Rows.Count == 0)
+            {
+                for (int l = 0; l < dgvHopDong.Rows.Count; l++)
+                {
+                    BL_TraPhong dbTra = new BL_TraPhong();
+                    dbTra.CapNhatHopDong(dgvHopDong.Rows[l].Cells[0].Value.ToString(), true);
+                    LoadData();
+                }
                 MessageBox.Show("Đã thanh toán");
-                dbHoaDon.ThemHoaDon(MaHoaDon, dgvHopDong.Rows[r].Cells[1].Value.ToString(),
-               dgvHopDong.Rows[r].Cells[3].Value.ToString(),
-               dgvHopDong.Rows[r].Cells[4].Value.ToString(), S,
-               dtime_Today.Value.Date.ToString(), ref err);
-                LoadData();
+                dbHoaDon.ThemHoaDon(MaHoaDon, x, y, z, S, dtime_Today.Value.Date.ToString(), ref err);
             }
         }
         private void SinhMa()
         {
             QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
             var counts = db.HoaDons.Count();
-            if (counts < 10)
+            if (counts < 9)
             {
                 MaHoaDon = "P0" + (counts +1).ToString();
             }

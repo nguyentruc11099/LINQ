@@ -28,6 +28,7 @@ namespace QuanLyKhachSan.BS_Layer
             nv.Luong = LuongNV;
             nv.NgaySinh = Convert.ToDateTime(NgaySinh);
             nv.GioiTinh = GioiTinh;
+            nv.Hide = false;
             qlks.NhanViens.InsertOnSubmit(nv);
             qlks.NhanViens.Context.SubmitChanges();
             return true;
@@ -36,10 +37,12 @@ namespace QuanLyKhachSan.BS_Layer
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             NhanVien nv = new NhanVien();
-            var nvQuery = from nvn in qlks.NhanViens
+            var nvQuery = (from nvn in qlks.NhanViens
                           where nvn.MaNV == MaNV
-                          select nvn;
-            qlks.NhanViens.DeleteAllOnSubmit(nvQuery);
+                          where nvn.Hide == false
+                          select nvn).SingleOrDefault();
+            nvQuery.Hide = true;
+            //qlks.NhanViens.DeleteAllOnSubmit(nvQuery);
             qlks.SubmitChanges();
             return true;
         }
@@ -48,6 +51,7 @@ namespace QuanLyKhachSan.BS_Layer
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             var nvQuery = (from nvn in qlks.NhanViens
                            where nvn.MaNV == MaNV
+                           where nvn.Hide == false
                            select nvn).SingleOrDefault();
             if (nvQuery != null)
             {

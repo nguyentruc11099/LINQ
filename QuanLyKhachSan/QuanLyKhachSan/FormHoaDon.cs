@@ -30,6 +30,13 @@ namespace QuanLyKhachSan
             {
                 dgvHoaDon.DataSource = dbKH.LayHoaDon();
                 dgvHoaDon.AutoResizeColumns();
+                QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+                var inpt = from p in db.HoaDons
+                           where p.Hide == false
+                           select p;
+                dgvHoaDon.DataSource = inpt;
+                dgvHoaDon.Refresh();
+                dgvHoaDon.Columns.RemoveAt(7);
                 dgvHoaDon.Columns.RemoveAt(6);
                 //this.txtMaHoaDon.ResetText();
                 //this.txtMaKH.ResetText();
@@ -151,6 +158,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.HoaDons
                                 where lpt.MaHoaDon.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvHoaDon.DataSource = lstphantu;
                 dgvHoaDon.Refresh();
@@ -159,6 +167,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.HoaDons
                                 where lpt.MaKH.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvHoaDon.DataSource = lstphantu;
                 dgvHoaDon.Refresh();
@@ -169,6 +178,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HoaDons
                                     where lpt.NgayThue.Value.Day.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHoaDon.DataSource = lstphantu;
                     dgvHoaDon.Refresh();
@@ -177,6 +187,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HoaDons
                                     where lpt.NgayThue.Value.Month.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHoaDon.DataSource = lstphantu;
                     dgvHoaDon.Refresh();
@@ -185,6 +196,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HoaDons
                                     where lpt.NgayThue.Value.Year.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHoaDon.DataSource = lstphantu;
                     dgvHoaDon.Refresh();
@@ -196,6 +208,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HoaDons
                                     where lpt.NgayTraPhong.Value.Day.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHoaDon.DataSource = lstphantu;
                     dgvHoaDon.Refresh();
@@ -204,6 +217,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HoaDons
                                     where lpt.NgayTraPhong.Value.Month.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHoaDon.DataSource = lstphantu;
                     dgvHoaDon.Refresh();
@@ -212,6 +226,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HoaDons
                                     where lpt.NgayTraPhong.Value.Year.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHoaDon.DataSource = lstphantu;
                     dgvHoaDon.Refresh();
@@ -221,6 +236,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.HoaDons
                                 where lpt.GiaTien.ToString().Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvHoaDon.DataSource = lstphantu;
                 dgvHoaDon.Refresh();
@@ -231,6 +247,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HoaDons
                                     where lpt.NgayXuatHoaDon.Value.Day.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHoaDon.DataSource = lstphantu;
                     dgvHoaDon.Refresh();
@@ -239,6 +256,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HoaDons
                                     where lpt.NgayXuatHoaDon.Value.Month.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHoaDon.DataSource = lstphantu;
                     dgvHoaDon.Refresh();
@@ -247,11 +265,13 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HoaDons
                                     where lpt.NgayXuatHoaDon.Value.Year.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHoaDon.DataSource = lstphantu;
                     dgvHoaDon.Refresh();
                 }
             }
+            dgvHoaDon.Columns.RemoveAt(7);
             dgvHoaDon.Columns.RemoveAt(6);
         }
 

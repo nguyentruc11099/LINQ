@@ -62,9 +62,11 @@
     <Compile Include="BS Layer\BLHoaDon.cs" />
     <Compile Include="BS Layer\BLHopDong.cs" />
     <Compile Include="BS Layer\BLKhachHang.cs" />
+    <Compile Include="BS Layer\BLNguoiDat.cs" />
     <Compile Include="BS Layer\BLNhanVien.cs" />
     <Compile Include="BS Layer\BLPhong.cs" />
     <Compile Include="BS Layer\BLPhong_HD.cs" />
+    <Compile Include="BS Layer\BLPhong_NguoiDat.cs" />
     <Compile Include="BS Layer\BL_TraPhong.cs" />
     <Compile Include="FormDangNhap.cs">
       <SubType>Form</SubType>
@@ -154,6 +156,9 @@
     <Compile Include="System\Data\Linq\ITable.cs" />
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDatPhong.resx">
+      <DependentUpon>FormDatPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDichVu.resx">
       <DependentUpon>FormDichVu.cs</DependentUpon>

@@ -30,6 +30,13 @@ namespace QuanLyKhachSan
             {
                 dgvDICHVU.DataSource = dbNV.LayDichVu();
                 dgvDICHVU.AutoResizeColumns();
+                QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+                var inpt = from p in db.DichVus
+                           where p.Hide == false
+                           select p;
+                dgvDICHVU.DataSource = inpt;
+                dgvDICHVU.Refresh();
+                dgvDICHVU.Columns.RemoveAt(3);
                 //this.txtMaDV.ResetText();
                 //this.txtTenDV.ResetText();
                 this.panel1.ResetText();
@@ -184,6 +191,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.DichVus
                                 where lpt.MaDV.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvDICHVU.DataSource = lstphantu;
                 dgvDICHVU.Refresh();
@@ -192,6 +200,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.DichVus
                                 where lpt.TenDV.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvDICHVU.DataSource = lstphantu;
                 dgvDICHVU.Refresh();
@@ -200,10 +209,12 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.DichVus
                                 where lpt.GiaDV.ToString().Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvDICHVU.DataSource = lstphantu;
                 dgvDICHVU.Refresh();
             }
+            dgvDICHVU.Columns.RemoveAt(3);
         }
     }
 }

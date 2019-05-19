@@ -39,6 +39,8 @@
             this.dtime_NgayThue = new System.Windows.Forms.DateTimePicker();
             this.dtime_NgayTra = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtime_NgayXuatHoaDon = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.btn_Trove = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
@@ -49,15 +51,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmb_TimKiem = new System.Windows.Forms.ComboBox();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dtime_NgayXuatHoaDon = new System.Windows.Forms.DateTimePicker();
+            this.cmb_Ngay = new System.Windows.Forms.ComboBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmb_Ngay = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
@@ -162,6 +162,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(890, 104);
             this.panel1.TabIndex = 10;
+            // 
+            // dtime_NgayXuatHoaDon
+            // 
+            this.dtime_NgayXuatHoaDon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtime_NgayXuatHoaDon.Location = new System.Drawing.Point(606, 64);
+            this.dtime_NgayXuatHoaDon.Name = "dtime_NgayXuatHoaDon";
+            this.dtime_NgayXuatHoaDon.Size = new System.Drawing.Size(200, 22);
+            this.dtime_NgayXuatHoaDon.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(565, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(134, 17);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Ngày Xuất Hóa Đơn";
             // 
             // dgvHoaDon
             // 
@@ -273,22 +290,17 @@
             this.txtTimKiem.TabIndex = 38;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
-            // label7
+            // cmb_Ngay
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(565, 44);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(134, 17);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Ngày Xuất Hóa Đơn";
-            // 
-            // dtime_NgayXuatHoaDon
-            // 
-            this.dtime_NgayXuatHoaDon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtime_NgayXuatHoaDon.Location = new System.Drawing.Point(606, 64);
-            this.dtime_NgayXuatHoaDon.Name = "dtime_NgayXuatHoaDon";
-            this.dtime_NgayXuatHoaDon.Size = new System.Drawing.Size(200, 22);
-            this.dtime_NgayXuatHoaDon.TabIndex = 11;
+            this.cmb_Ngay.FormattingEnabled = true;
+            this.cmb_Ngay.Items.AddRange(new object[] {
+            "Ngày",
+            "Tháng",
+            "Năm"});
+            this.cmb_Ngay.Location = new System.Drawing.Point(407, 129);
+            this.cmb_Ngay.Name = "cmb_Ngay";
+            this.cmb_Ngay.Size = new System.Drawing.Size(121, 24);
+            this.cmb_Ngay.TabIndex = 42;
             // 
             // Column1
             // 
@@ -306,6 +318,7 @@
             // 
             // GiaTien
             // 
+            this.GiaTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.GiaTien.DataPropertyName = "GiaTien";
             this.GiaTien.HeaderText = "Giá tiền";
             this.GiaTien.Name = "GiaTien";
@@ -330,18 +343,6 @@
             this.Column4.DataPropertyName = "NgayTraPhong";
             this.Column4.HeaderText = "Ngày trả";
             this.Column4.Name = "Column4";
-            // 
-            // cmb_Ngay
-            // 
-            this.cmb_Ngay.FormattingEnabled = true;
-            this.cmb_Ngay.Items.AddRange(new object[] {
-            "Ngày",
-            "Tháng",
-            "Năm"});
-            this.cmb_Ngay.Location = new System.Drawing.Point(407, 129);
-            this.cmb_Ngay.Name = "cmb_Ngay";
-            this.cmb_Ngay.Size = new System.Drawing.Size(121, 24);
-            this.cmb_Ngay.TabIndex = 42;
             // 
             // FormHoaDon
             // 
@@ -396,12 +397,12 @@
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.DateTimePicker dtime_NgayXuatHoaDon;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmb_Ngay;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.ComboBox cmb_Ngay;
     }
 }

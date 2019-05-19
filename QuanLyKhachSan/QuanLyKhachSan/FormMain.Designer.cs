@@ -47,6 +47,7 @@
             this.menuNhanPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.menuTraPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuDatPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQLKS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,7 +178,8 @@
             // 
             this.menuHoatDong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuNhanPhong,
-            this.menuTraPhong});
+            this.menuTraPhong,
+            this.menuDatPhong});
             this.menuHoatDong.Name = "menuHoatDong";
             this.menuHoatDong.Size = new System.Drawing.Size(93, 24);
             this.menuHoatDong.Text = "Hoạt động";
@@ -205,6 +207,13 @@
             this.label1.Size = new System.Drawing.Size(369, 49);
             this.label1.TabIndex = 3;
             this.label1.Text = "Quản lý khách sạn";
+            // 
+            // menuDatPhong
+            // 
+            this.menuDatPhong.Name = "menuDatPhong";
+            this.menuDatPhong.Size = new System.Drawing.Size(216, 26);
+            this.menuDatPhong.Text = "Đặt phòng";
+            this.menuDatPhong.Click += new System.EventHandler(this.menuDatPhong_Click);
             // 
             // FormMain
             // 
@@ -244,5 +253,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuNhanPhong;
         private System.Windows.Forms.ToolStripMenuItem menuTraPhong;
         private System.Windows.Forms.ToolStripMenuItem menuQLHoaDon;
+        private System.Windows.Forms.ToolStripMenuItem menuDatPhong;
     }
 }

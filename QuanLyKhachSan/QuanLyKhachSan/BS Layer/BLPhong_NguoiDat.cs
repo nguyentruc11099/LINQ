@@ -10,43 +10,43 @@ using System.Data.SqlClient;
 
 namespace QuanLyKhachSan.BS_Layer
 {
-    class BLPhong_HD
+    class BLPhong_NguoiDat
     {
-        public System.Data.Linq.Table<PhongvaHopDong> LayPhong_HD()
+        public System.Data.Linq.Table<PhongvaNguoiDat> LayPhong_NguoiDat()
         {
             DataSet ds = new DataSet();
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
-            return qlks.PhongvaHopDongs;
+            return qlks.PhongvaNguoiDats;
         }
-        public bool ThemPhong_HD(string MaHD, string MaPhong, ref string err)
+        public bool ThemPhong_NguoiDat(string MaNguoiDat, string MaPhong, ref string err)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
-            PhongvaHopDong dv = new PhongvaHopDong();
-            dv.MaHD = MaHD;
+            PhongvaNguoiDat dv = new PhongvaNguoiDat();
+            dv.MaNguoiDat = MaNguoiDat;
             dv.MaPhong = MaPhong;
             dv.Hide = false;
-            qlks.PhongvaHopDongs.InsertOnSubmit(dv);
-            qlks.PhongvaHopDongs.Context.SubmitChanges();
+            qlks.PhongvaNguoiDats.InsertOnSubmit(dv);
+            qlks.PhongvaNguoiDats.Context.SubmitChanges();
             return true;
         }
-        public bool XoaPhong_HD(ref string err, string MaHD)
+        public bool XoaPhong_NguoiDat(ref string err, string MaNguoiDat)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
-            PhongvaHopDong dv = new PhongvaHopDong();
-            var dvQuery = (from dvu in qlks.PhongvaHopDongs
-                          where dvu.MaHD == MaHD
-                          where dvu.Hide == false
-                          select dvu).SingleOrDefault();
+            PhongvaNguoiDat dv = new PhongvaNguoiDat();
+            var dvQuery = (from dvu in qlks.PhongvaNguoiDats
+                           where dvu.MaNguoiDat == MaNguoiDat
+                           where dvu.Hide == false
+                           select dvu).SingleOrDefault();
             dvQuery.Hide = true;
-            //qlks.PhongvaHopDongs.DeleteAllOnSubmit(dvQuery);
+            //qlks.PhongvaNguoiDats.DeleteAllOnSubmit(dvQuery);
             qlks.SubmitChanges();
             return true;
         }
-        public bool CapNhatPhong_HD(string MaHD, string MaPhong, ref string err)
+        public bool CapNhatPhong_NguoiDat(string MaNguoiDat, string MaPhong, ref string err)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
-            var dvQuery = (from dvu in qlks.PhongvaHopDongs
-                           where dvu.MaHD == MaHD
+            var dvQuery = (from dvu in qlks.PhongvaNguoiDats
+                           where dvu.MaNguoiDat == MaNguoiDat
                            where dvu.Hide == false
                            select dvu).SingleOrDefault();
             if (dvQuery != null)

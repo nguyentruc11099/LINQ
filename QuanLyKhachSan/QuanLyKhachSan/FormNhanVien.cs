@@ -30,7 +30,14 @@ namespace QuanLyKhachSan
             {
                 dgvNhanVien.DataSource = dbNV.LayNhanVien();
                 dgvNhanVien.AutoResizeColumns();
+                QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+                var inpt = from p in db.NhanViens
+                           where p.Hide == false
+                           select p;
+                dgvNhanVien.DataSource = inpt;
+                dgvNhanVien.Refresh();
                 dgvNhanVien.Columns.Remove("Password");
+                dgvNhanVien.Columns.RemoveAt(6);
                 //this.txtMaNV.ResetText();
                 //this.txtTenNV.ResetText();
                 this.panel1.ResetText();
@@ -217,6 +224,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.NhanViens
                                 where lpt.MaNV.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvNhanVien.DataSource = lstphantu;
                 dgvNhanVien.Refresh();
@@ -225,6 +233,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.NhanViens
                                 where lpt.TenNV.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvNhanVien.DataSource = lstphantu;
                 dgvNhanVien.Refresh();
@@ -233,6 +242,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.NhanViens
                                 where lpt.ChucVu.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvNhanVien.DataSource = lstphantu;
                 dgvNhanVien.Refresh();
@@ -241,6 +251,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.NhanViens
                                 where lpt.Luong.ToString().Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvNhanVien.DataSource = lstphantu;
                 dgvNhanVien.Refresh();
@@ -250,6 +261,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.NhanViens
                                 where lpt.GioiTinh.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvNhanVien.DataSource = lstphantu;
                 dgvNhanVien.Refresh();
@@ -260,6 +272,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.NhanViens
                                     where lpt.NgaySinh.Value.Day.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvNhanVien.DataSource = lstphantu;
                     dgvNhanVien.Refresh();
@@ -268,6 +281,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.NhanViens
                                     where lpt.NgaySinh.Value.Month.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvNhanVien.DataSource = lstphantu;
                     dgvNhanVien.Refresh();
@@ -276,24 +290,26 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.NhanViens
                                     where lpt.NgaySinh.Value.Year.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvNhanVien.DataSource = lstphantu;
                     dgvNhanVien.Refresh();
                 }
             }
             dgvNhanVien.Columns.Remove("Password");
+            dgvNhanVien.Columns.RemoveAt(6);
         }
         private void SinhMa()
         {
-            string a = this.dgvNhanVien.Rows[this.dgvNhanVien.Rows.Count - 2].Cells[0].Value.ToString();
-            int b = Convert.ToInt32(a.Substring(1)) + 1;
-            if(b<10)
+            QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+            var b = db.NhanViens.Count();
+            if (b<9)
             {
-                txtMaNV.Text = "N0" + b.ToString();
+                txtMaNV.Text = "N0" + (b+1).ToString();
             }
             else
             {
-                txtMaNV.Text = "N" + b.ToString();
+                txtMaNV.Text = "N" + (b+1).ToString();
             }
         }
 

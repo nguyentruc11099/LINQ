@@ -28,6 +28,7 @@ namespace QuanLyKhachSan.BS_Layer
             ph.NgayTraPhong = Convert.ToDateTime(NgayTra);
             ph.GiaTien = GiaTien;
             ph.NgayXuatHoaDon = Convert.ToDateTime(NgayXuatHoaDon);
+            ph.Hide = false;
             qlks.HoaDons.InsertOnSubmit(ph);
             qlks.HoaDons.Context.SubmitChanges();
             return true;
@@ -36,10 +37,12 @@ namespace QuanLyKhachSan.BS_Layer
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             HoaDon ph = new HoaDon();
-            var phQuery = from phg in qlks.HoaDons
+            var phQuery = (from phg in qlks.HoaDons
                           where phg.MaHoaDon == MaHoaDon
-                          select phg;
-            qlks.HoaDons.DeleteAllOnSubmit(phQuery);
+                          where phg.Hide == false
+                           select phg).SingleOrDefault();
+            phQuery.Hide = true;
+            //qlks.HoaDons.DeleteAllOnSubmit(phQuery);
             qlks.SubmitChanges();
             return true;
         }
@@ -48,6 +51,7 @@ namespace QuanLyKhachSan.BS_Layer
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             var phQuery = (from phg in qlks.HoaDons
                            where phg.MaHoaDon == MaHoaDon
+                           where phg.Hide == false
                            select phg).SingleOrDefault();
             if (phQuery != null)
             {

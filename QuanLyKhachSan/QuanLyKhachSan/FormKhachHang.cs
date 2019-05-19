@@ -30,6 +30,13 @@ namespace QuanLyKhachSan
             {
                 dgvKhachHang.DataSource = dbKH.LayKhachHang();
                 dgvKhachHang.AutoResizeColumns();
+                QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+                var inpt = from p in db.KhachHangs
+                           where p.Hide == false
+                           select p;
+                dgvKhachHang.DataSource = inpt;
+                dgvKhachHang.Refresh();
+                dgvKhachHang.Columns.RemoveAt(6);
                 //this.txtMaKH.ResetText();
                 //this.txtTenKH.ResetText();
                 this.panel1.ResetText();
@@ -211,6 +218,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.KhachHangs
                                 where lpt.MaKH.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvKhachHang.DataSource = lstphantu;
                 dgvKhachHang.Refresh();
@@ -219,6 +227,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.KhachHangs
                                 where lpt.TenKH.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvKhachHang.DataSource = lstphantu;
                 dgvKhachHang.Refresh();
@@ -227,6 +236,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.KhachHangs
                                 where lpt.CMND.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvKhachHang.DataSource = lstphantu;
                 dgvKhachHang.Refresh();
@@ -235,6 +245,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.KhachHangs
                                 where lpt.SDT.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvKhachHang.DataSource = lstphantu;
                 dgvKhachHang.Refresh();
@@ -244,6 +255,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.KhachHangs
                                 where lpt.GioiTinh.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvKhachHang.DataSource = lstphantu;
                 dgvKhachHang.Refresh();
@@ -252,23 +264,25 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.KhachHangs
                                 where lpt.XuatXu.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvKhachHang.DataSource = lstphantu;
                 dgvKhachHang.Refresh();
             }
+            dgvKhachHang.Columns.RemoveAt(6);
 
         }
         private void SinhMa()
         {
-            string a = this.dgvKhachHang.Rows[this.dgvKhachHang.Rows.Count - 2].Cells[0].Value.ToString();
-            int b = Convert.ToInt32(a.Substring(1)) + 1;
-            if (b < 10)
+            QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+            var b = db.NhanViens.Count();
+            if (b < 9)
             {
-                txtMaKH.Text = "K0" + b.ToString();
+                txtMaKH.Text = "K0" + (b+1).ToString();
             }
             else
             {
-                txtMaKH.Text = "N" + b.ToString();
+                txtMaKH.Text = "N" + (b+1).ToString();
             }
         }
 

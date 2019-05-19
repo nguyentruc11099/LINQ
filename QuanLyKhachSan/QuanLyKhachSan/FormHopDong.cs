@@ -29,6 +29,13 @@ namespace QuanLyKhachSan
             {
                 dgvHopDong.DataSource = dbNV.LayHopDong();
                 dgvHopDong.AutoResizeColumns();
+                QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+                var inpt = from p in db.HopDongs
+                           where p.Hide == false
+                           select p;
+                dgvHopDong.DataSource = inpt;
+                dgvHopDong.Refresh();
+                dgvHopDong.Columns.RemoveAt(5);
                 dgvHopDong.Columns.RemoveAt(4);
                 //this.txtMaHopDong.ResetText();
                 //this.txtMaKH.ResetText();
@@ -148,6 +155,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.HopDongs
                                 where lpt.MaHopDong.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvHopDong.DataSource = lstphantu;
                 dgvHopDong.Refresh();
@@ -156,6 +164,7 @@ namespace QuanLyKhachSan
             {
                 var lstphantu = from lpt in db.HopDongs
                                 where lpt.MaKH.Contains(txtTimKiem.Text)
+                                where lpt.Hide == false
                                 select lpt;
                 dgvHopDong.DataSource = lstphantu;
                 dgvHopDong.Refresh();
@@ -166,6 +175,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HopDongs
                                     where lpt.NgayThue.Value.Day.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHopDong.DataSource = lstphantu;
                     dgvHopDong.Refresh();
@@ -174,6 +184,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HopDongs
                                     where lpt.NgayThue.Value.Month.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHopDong.DataSource = lstphantu;
                     dgvHopDong.Refresh();
@@ -182,6 +193,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HopDongs
                                     where lpt.NgayThue.Value.Year.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHopDong.DataSource = lstphantu;
                     dgvHopDong.Refresh();
@@ -194,6 +206,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HopDongs
                                     where lpt.NgayDuKienTraPhong.Value.Day.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHopDong.DataSource = lstphantu;
                     dgvHopDong.Refresh();
@@ -202,6 +215,7 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HopDongs
                                     where lpt.NgayDuKienTraPhong.Value.Month.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHopDong.DataSource = lstphantu;
                     dgvHopDong.Refresh();
@@ -210,12 +224,14 @@ namespace QuanLyKhachSan
                 {
                     var lstphantu = from lpt in db.HopDongs
                                     where lpt.NgayDuKienTraPhong.Value.Year.ToString().Contains(txtTimKiem.Text)
+                                    where lpt.Hide == false
                                     select lpt;
                     dgvHopDong.DataSource = lstphantu;
                     dgvHopDong.Refresh();
                 }
 
             }
+            dgvHopDong.Columns.RemoveAt(5);
             dgvHopDong.Columns.RemoveAt(4);
         }
 
@@ -233,15 +249,15 @@ namespace QuanLyKhachSan
         }
         private void SinhMa()
         {
-            string a = this.dgvHopDong.Rows[this.dgvHopDong.Rows.Count - 2].Cells[0].Value.ToString();
-            int b = Convert.ToInt32(a.Substring(1)) + 1;
-            if (b < 10)
+            QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+            var b = db.HopDongs.Count();
+            if (b < 9)
             {
-                txtMaHopDong.Text = "H0" + b.ToString();
+                txtMaHopDong.Text = "H0" + (b+1).ToString();
             }
             else
             {
-                txtMaHopDong.Text = "H" + b.ToString();
+                txtMaHopDong.Text = "H" + (b+1).ToString();
             }
         }
 
