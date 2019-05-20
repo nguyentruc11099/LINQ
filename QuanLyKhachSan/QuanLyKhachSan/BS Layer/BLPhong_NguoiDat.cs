@@ -29,12 +29,13 @@ namespace QuanLyKhachSan.BS_Layer
             qlks.PhongvaNguoiDats.Context.SubmitChanges();
             return true;
         }
-        public bool XoaPhong_NguoiDat(ref string err, string MaNguoiDat)
+        public bool XoaPhong_NguoiDat(ref string err, string MaNguoiDat, string MaPhong)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             PhongvaNguoiDat dv = new PhongvaNguoiDat();
             var dvQuery = (from dvu in qlks.PhongvaNguoiDats
                            where dvu.MaNguoiDat == MaNguoiDat
+                           where dvu.MaPhong == MaPhong
                            where dvu.Hide == false
                            select dvu).SingleOrDefault();
             dvQuery.Hide = true;

@@ -216,5 +216,10 @@ namespace QuanLyKhachSan
             }
             dgvDICHVU.Columns.RemoveAt(3);
         }
+
+        private void cmb_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

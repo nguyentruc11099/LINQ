@@ -64,11 +64,29 @@ namespace QuanLyKhachSan
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            BLDV_HD blP = new BLDV_HD();
-            blP.CapNhatDichVuvaHD(this.txtMaHD.Text, this.txtMaDV.Text,
-                Convert.ToInt32(this.txtSoNgaySD.Text), ref err);
-            LoadData();
-            MessageBox.Show("Đã sửa xong!");
+            if (Them == true)
+            {
+                try
+                {
+                    BLDV_HD blP = new BLDV_HD();
+                    blP.ThemDichVuvaHD(this.txtMaHD.Text, this.txtMaDV.Text,
+                    Convert.ToInt32(this.txtSoNgaySD.Text), ref err);
+                    LoadData();
+                    MessageBox.Show("Đã thêm xong!");
+                }
+                catch
+                {
+                    MessageBox.Show("Không thêm được!");
+                }
+            }
+            else
+            {
+                BLDV_HD blP = new BLDV_HD();
+                blP.CapNhatDichVuvaHD(this.txtMaHD.Text, this.txtMaDV.Text,
+                    Convert.ToInt32(this.txtSoNgaySD.Text), ref err);
+                LoadData();
+                MessageBox.Show("Đã sửa xong!");
+            }        
 
         }
 
@@ -185,6 +203,23 @@ namespace QuanLyKhachSan
             dgvDV_HD.Columns.RemoveAt(5);
             dgvDV_HD.Columns.RemoveAt(4);
             dgvDV_HD.Columns.RemoveAt(3);
+        }
+
+        private void btn_Them_Click(object sender, EventArgs e)
+        {
+            Them = true;
+            this.txtMaHD.Enabled = true;
+            ResetText();
+            this.btn_Luu.Enabled = true;
+            this.btn_Huy.Enabled = true;
+            this.panel1.Enabled = true;
+
+            this.btn_Them.Enabled = false;
+            this.btn_Sua.Enabled = false;
+            this.btn_Xoa.Enabled = false;
+            this.btn_Trove.Enabled = false;
+
+            this.txtMaHD.Focus();
         }
     }
 }

@@ -52,9 +52,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(49, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.Size = new System.Drawing.Size(72, 17);
             this.label4.TabIndex = 55;
             this.label4.Text = "Tìm kiếm";
             // 
@@ -68,6 +69,7 @@
             this.cmb_TimKiem.Name = "cmb_TimKiem";
             this.cmb_TimKiem.Size = new System.Drawing.Size(127, 24);
             this.cmb_TimKiem.TabIndex = 54;
+            this.cmb_TimKiem.Text = "Mã hợp đồng";
             // 
             // txtTimKiem
             // 
@@ -79,66 +81,79 @@
             // 
             // btn_Trove
             // 
+            this.btn_Trove.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_Trove.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Trove.Location = new System.Drawing.Point(359, 433);
             this.btn_Trove.Name = "btn_Trove";
             this.btn_Trove.Size = new System.Drawing.Size(105, 33);
             this.btn_Trove.TabIndex = 52;
             this.btn_Trove.Text = "Trở về";
-            this.btn_Trove.UseVisualStyleBackColor = true;
+            this.btn_Trove.UseVisualStyleBackColor = false;
             this.btn_Trove.Click += new System.EventHandler(this.btn_Trove_Click);
             // 
             // btn_Xoa
             // 
+            this.btn_Xoa.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_Xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Xoa.Location = new System.Drawing.Point(359, 487);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(105, 33);
             this.btn_Xoa.TabIndex = 51;
             this.btn_Xoa.Text = "Xóa";
-            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.UseVisualStyleBackColor = false;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Sua
             // 
+            this.btn_Sua.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Sua.Location = new System.Drawing.Point(206, 433);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(105, 33);
             this.btn_Sua.TabIndex = 50;
             this.btn_Sua.Text = "Sửa";
-            this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.UseVisualStyleBackColor = false;
             this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Huy
             // 
+            this.btn_Huy.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_Huy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Huy.Location = new System.Drawing.Point(206, 487);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(105, 33);
             this.btn_Huy.TabIndex = 49;
             this.btn_Huy.Text = "Hủy";
-            this.btn_Huy.UseVisualStyleBackColor = true;
+            this.btn_Huy.UseVisualStyleBackColor = false;
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
             // btn_Luu
             // 
+            this.btn_Luu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_Luu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Luu.Location = new System.Drawing.Point(52, 487);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(105, 33);
             this.btn_Luu.TabIndex = 47;
             this.btn_Luu.Text = "Lưu";
-            this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.UseVisualStyleBackColor = false;
             this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // btn_Reload
             // 
+            this.btn_Reload.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_Reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Reload.Location = new System.Drawing.Point(52, 433);
             this.btn_Reload.Name = "btn_Reload";
             this.btn_Reload.Size = new System.Drawing.Size(105, 33);
             this.btn_Reload.TabIndex = 46;
             this.btn_Reload.Text = "Reload";
-            this.btn_Reload.UseVisualStyleBackColor = true;
+            this.btn_Reload.UseVisualStyleBackColor = false;
             this.btn_Reload.Click += new System.EventHandler(this.btn_Reload_Click);
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.txtMaPhong);
             this.panel1.Controls.Add(this.txtMaHD);
             this.panel1.Controls.Add(this.label2);
@@ -165,23 +180,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(23, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 17);
+            this.label2.Size = new System.Drawing.Size(80, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mã Phòng";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(23, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 17);
+            this.label1.Size = new System.Drawing.Size(106, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã Hợp Đồng";
             // 
             // dgvPhong_HD
             // 
+            this.dgvPhong_HD.BackgroundColor = System.Drawing.Color.White;
             this.dgvPhong_HD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPhong_HD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,

@@ -43,25 +43,32 @@
             // 
             // btn_Thoat
             // 
+            this.btn_Thoat.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_Thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Thoat.Location = new System.Drawing.Point(289, 328);
             this.btn_Thoat.Name = "btn_Thoat";
             this.btn_Thoat.Size = new System.Drawing.Size(114, 48);
             this.btn_Thoat.TabIndex = 10;
             this.btn_Thoat.Text = "Thoát";
-            this.btn_Thoat.UseVisualStyleBackColor = true;
+            this.btn_Thoat.UseVisualStyleBackColor = false;
+            this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
             // 
             // btn_DangNhap
             // 
+            this.btn_DangNhap.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btn_DangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DangNhap.Location = new System.Drawing.Point(73, 328);
             this.btn_DangNhap.Name = "btn_DangNhap";
             this.btn_DangNhap.Size = new System.Drawing.Size(114, 48);
             this.btn_DangNhap.TabIndex = 9;
             this.btn_DangNhap.Text = "Đăng nhập";
-            this.btn_DangNhap.UseVisualStyleBackColor = true;
+            this.btn_DangNhap.UseVisualStyleBackColor = false;
             this.btn_DangNhap.Click += new System.EventHandler(this.btn_DangNhap_Click);
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.rbtn_LeTan);
             this.panel1.Controls.Add(this.rbtn_QuanLy);
             this.panel1.Controls.Add(this.txtPass);
@@ -77,9 +84,10 @@
             // rbtn_LeTan
             // 
             this.rbtn_LeTan.AutoSize = true;
+            this.rbtn_LeTan.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtn_LeTan.Location = new System.Drawing.Point(308, 69);
             this.rbtn_LeTan.Name = "rbtn_LeTan";
-            this.rbtn_LeTan.Size = new System.Drawing.Size(74, 21);
+            this.rbtn_LeTan.Size = new System.Drawing.Size(80, 21);
             this.rbtn_LeTan.TabIndex = 12;
             this.rbtn_LeTan.TabStop = true;
             this.rbtn_LeTan.Text = "Lễ Tân";
@@ -88,9 +96,10 @@
             // rbtn_QuanLy
             // 
             this.rbtn_QuanLy.AutoSize = true;
+            this.rbtn_QuanLy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbtn_QuanLy.Location = new System.Drawing.Point(308, 24);
             this.rbtn_QuanLy.Name = "rbtn_QuanLy";
-            this.rbtn_QuanLy.Size = new System.Drawing.Size(83, 21);
+            this.rbtn_QuanLy.Size = new System.Drawing.Size(90, 21);
             this.rbtn_QuanLy.TabIndex = 11;
             this.rbtn_QuanLy.TabStop = true;
             this.rbtn_QuanLy.Text = "Quản Lý";
@@ -98,17 +107,21 @@
             // 
             // txtPass
             // 
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Location = new System.Drawing.Point(147, 207);
+            this.txtPass.Multiline = true;
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(222, 22);
+            this.txtPass.Size = new System.Drawing.Size(241, 34);
             this.txtPass.TabIndex = 4;
             this.txtPass.Text = "a";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(147, 145);
+            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.Location = new System.Drawing.Point(147, 141);
+            this.txtID.Multiline = true;
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(222, 22);
+            this.txtID.Size = new System.Drawing.Size(241, 34);
             this.txtID.TabIndex = 3;
             this.txtID.Text = "N01";
             // 
@@ -146,6 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(520, 413);
             this.Controls.Add(this.btn_Thoat);
             this.Controls.Add(this.btn_DangNhap);

@@ -72,6 +72,7 @@ namespace QuanLyKhachSan
             LoadData();
             SinhMaHD();
             dgvHD.Rows[0].Cells[3].Value = dtime_Today.Value.Date;
+            btn_ThemDV.Enabled = false;
         }
 
         private void rbtn_old_CheckedChanged(object sender, EventArgs e)
@@ -172,6 +173,7 @@ namespace QuanLyKhachSan
                         LoadData();
                     }
                     MessageBox.Show("Đã thêm xong!");
+                    btn_ThemDV.Enabled = true;
                     dgvHD.Rows.Clear();
                 }
             }
@@ -363,6 +365,38 @@ namespace QuanLyKhachSan
             {
                 txtMaHD.Text = "H" + (counts + 1).ToString();
             }
+        }
+
+        private void numUD_SoNgayDuKien_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_ThemDV_Click(object sender, EventArgs e)
+        {
+            FormDichVu_HopDong a1 = new FormDichVu_HopDong();
+            a1.IsMdiContainer = this.IsMdiContainer;
+            a1.Show();
+        }
+
+        private void panel_Phong_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel_HD_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel_KH_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel_ThemKH_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

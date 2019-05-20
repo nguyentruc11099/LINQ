@@ -46,8 +46,11 @@
             this.menuHoatDong = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNhanPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.menuTraPhong = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuDatPhong = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.menuQLDP = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.menuThuNhap = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQLKS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,20 +82,20 @@
             // menuDangNhap
             // 
             this.menuDangNhap.Name = "menuDangNhap";
-            this.menuDangNhap.Size = new System.Drawing.Size(157, 26);
+            this.menuDangNhap.Size = new System.Drawing.Size(216, 26);
             this.menuDangNhap.Text = "Đăng nhập";
             this.menuDangNhap.Click += new System.EventHandler(this.menuDangNhap_Click);
             // 
             // menuThoat
             // 
             this.menuThoat.Name = "menuThoat";
-            this.menuThoat.Size = new System.Drawing.Size(157, 26);
+            this.menuThoat.Size = new System.Drawing.Size(216, 26);
             this.menuThoat.Text = "Thoát";
             // 
             // menuDangXuat
             // 
             this.menuDangXuat.Name = "menuDangXuat";
-            this.menuDangXuat.Size = new System.Drawing.Size(157, 26);
+            this.menuDangXuat.Size = new System.Drawing.Size(216, 26);
             this.menuDangXuat.Text = "Đăng xuất";
             this.menuDangXuat.Click += new System.EventHandler(this.menuDangXuat_Click);
             // 
@@ -106,7 +109,8 @@
             this.menuQLHopDong,
             this.menuQLDV_KH,
             this.menuQLPhong_HD,
-            this.menuQLHoaDon});
+            this.menuQLHoaDon,
+            this.menuQLDP});
             this.menuDanhmucQL.Name = "menuDanhmucQL";
             this.menuDanhmucQL.Size = new System.Drawing.Size(140, 24);
             this.menuDanhmucQL.Text = "Danh mục quản lý";
@@ -169,6 +173,8 @@
             // 
             // menuThongKe
             // 
+            this.menuThongKe.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuThuNhap});
             this.menuThongKe.Name = "menuThongKe";
             this.menuThongKe.Size = new System.Drawing.Size(82, 24);
             this.menuThongKe.Text = "Thống kê";
@@ -198,16 +204,6 @@
             this.menuTraPhong.Text = "Trả phòng";
             this.menuTraPhong.Click += new System.EventHandler(this.menuTraPhong_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 25.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(216, 201);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(369, 49);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Quản lý khách sạn";
-            // 
             // menuDatPhong
             // 
             this.menuDatPhong.Name = "menuDatPhong";
@@ -215,11 +211,44 @@
             this.menuDatPhong.Text = "Đặt phòng";
             this.menuDatPhong.Click += new System.EventHandler(this.menuDatPhong_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 25.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(121, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(490, 49);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "QUẢN LÝ KHÁCH SẠN";
+            // 
+            // menuQLDP
+            // 
+            this.menuQLDP.Name = "menuQLDP";
+            this.menuQLDP.Size = new System.Drawing.Size(264, 26);
+            this.menuQLDP.Text = "Quản lý đặt phòng";
+            this.menuQLDP.Click += new System.EventHandler(this.menuQLDP_Click);
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(242, 117);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 6;
+            // 
+            // menuThuNhap
+            // 
+            this.menuThuNhap.Name = "menuThuNhap";
+            this.menuThuNhap.Size = new System.Drawing.Size(216, 26);
+            this.menuThuNhap.Text = "Thu nhập";
+            this.menuThuNhap.Click += new System.EventHandler(this.menuThuNhap_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::QuanLyKhachSan.Properties.Resources.background_don_gian_cho_windows__2_;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuQLKS);
             this.Name = "FormMain";
@@ -254,5 +283,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuTraPhong;
         private System.Windows.Forms.ToolStripMenuItem menuQLHoaDon;
         private System.Windows.Forms.ToolStripMenuItem menuDatPhong;
+        private System.Windows.Forms.ToolStripMenuItem menuQLDP;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.ToolStripMenuItem menuThuNhap;
     }
 }

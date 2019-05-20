@@ -18,7 +18,8 @@ namespace QuanLyKhachSan.BS_Layer
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             return qlks.Phongs;
         }
-        public bool ThemPhong(string MaPhong, string LoaiPhong, string TinhTrang, double GiaPhong, string SDT, string MaNV, ref string err)
+        public bool ThemPhong(string MaPhong, string LoaiPhong, string TinhTrang, 
+            double GiaPhong, string SDT, string MaNV, ref string err)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             Phong ph = new Phong();
@@ -46,7 +47,9 @@ namespace QuanLyKhachSan.BS_Layer
             qlks.SubmitChanges();
             return true;
         }
-        public bool CapNhatPhong(string MaPhong, string LoaiPhong, string TinhTrang, double GiaPhong, string SDT, string MaNV, ref string err)
+        public bool CapNhatPhong(string MaPhong, 
+            string LoaiPhong, string TinhTrang, 
+            double GiaPhong, string SDT, string MaNV, ref string err)
         {
             QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
             var phQuery = (from phg in qlks.Phongs
@@ -60,6 +63,20 @@ namespace QuanLyKhachSan.BS_Layer
                 phQuery.GiaPhong = GiaPhong;
                 phQuery.SDT = SDT;
                 phQuery.MaNV = MaNV;
+                qlks.SubmitChanges();
+            }
+            return true;
+        }
+        public bool CapNhatPhong_TinhTrang(string MaPhong, string TinhTrang, ref string err)
+        {
+            QuanLyKhachSanDataContext qlks = new QuanLyKhachSanDataContext();
+            var phQuery = (from phg in qlks.Phongs
+                           where phg.MaPhong == MaPhong
+                           where phg.Hide == false
+                           select phg).SingleOrDefault();
+            if (phQuery != null)
+            {
+                phQuery.TinhTrang = TinhTrang;
                 qlks.SubmitChanges();
             }
             return true;

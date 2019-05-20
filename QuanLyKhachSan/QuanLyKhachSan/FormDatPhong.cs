@@ -90,6 +90,10 @@ namespace QuanLyKhachSan
         private void Reset_Button_Click(object sender, EventArgs e)
         {
             dgvHDDat.Rows.Clear();
+            string[] m = new string[50];
+            n = 0;
+            txtSDT.ResetText();
+            txtTenNguoiDat.ResetText();
         }
 
         private void Back_Button_Click(object sender, EventArgs e)
@@ -107,8 +111,8 @@ namespace QuanLyKhachSan
             else
             {
                 dgvHDDat.Rows[0].Cells[4].Value = dgvHDDat.Rows[0].Cells[4].Value + "- " + dgvPHONG.Rows[r].Cells[0].Value.ToString();
-                temp = dgvPHONG.Rows[r].Cells[4].Value.ToString();
-                m[n++] = dgvPHONG.Rows[r].Cells[4].Value.ToString();
+                temp = dgvPHONG.Rows[r].Cells[0].Value.ToString();
+                m[n++] = dgvPHONG.Rows[r].Cells[0].Value.ToString();
             }
         }
         private void SinhMaHD()

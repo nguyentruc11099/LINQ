@@ -275,7 +275,7 @@ namespace QuanLyKhachSan
         private void SinhMa()
         {
             QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
-            var b = db.NhanViens.Count();
+            var b = db.KhachHangs.Count();
             if (b < 9)
             {
                 txtMaKH.Text = "K0" + (b+1).ToString();

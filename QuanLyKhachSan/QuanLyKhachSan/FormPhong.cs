@@ -38,8 +38,6 @@ namespace QuanLyKhachSan
                 dgvPHONG.Refresh();
                 dgvPHONG.Columns.RemoveAt(7);
                 dgvPHONG.Columns.RemoveAt(6);
-                //this.txtMaPhong.ResetText();
-                //this.txtTenPhong.ResetText();
                 this.panel1.ResetText();
                 this.btn_Luu.Enabled = false;
                 this.btn_Huy.Enabled = false;

@@ -135,9 +135,21 @@ namespace QuanLyKhachSan
 
         private void menuNhanPhong_Click(object sender, EventArgs e)
         {
-            Form_NhanPhong a1 = new Form_NhanPhong();
-            a1.IsMdiContainer = this.IsMdiContainer;
-            a1.Show();
+            DialogResult traloi;
+            traloi = MessageBox.Show("Bạn có đặt phòng trước không?", "Trả lời",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (traloi == DialogResult.Yes)
+            {
+                Form_NhanPhongDat a1 = new Form_NhanPhongDat();
+                a1.IsMdiContainer = this.IsMdiContainer;
+                a1.Show();
+            }
+            else
+            {
+                Form_NhanPhong a1 = new Form_NhanPhong();
+                a1.IsMdiContainer = this.IsMdiContainer;
+                a1.Show();
+            }
         }
 
         private void menuTraPhong_Click(object sender, EventArgs e)
@@ -152,6 +164,22 @@ namespace QuanLyKhachSan
             FormDatPhong a1 = new FormDatPhong();
             a1.IsMdiContainer = this.IsMdiContainer;
             a1.Show();
+        }
+
+        private void menuQLDP_Click(object sender, EventArgs e)
+        {
+            FormQLDatPhong a1 = new FormQLDatPhong();
+            a1.IsMdiContainer = this.IsMdiContainer;
+            a1.Show();
+        }
+
+        private void rtxt_Thongbao_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuThuNhap_Click(object sender, EventArgs e)
+        {
         }
     }
 }
